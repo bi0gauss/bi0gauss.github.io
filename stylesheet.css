@@ -1,0 +1,19 @@
+body { 
+	background-color: #201f25;
+	font-family: Helvetica, Arial, sans-serif; 
+	font-size: 16px; 
+	line-height: 1em; 
+	margin: 0; 
+	padding: 10px;
+	text-align: center;
+}
+img {
+	max-width:100%
+}
+a img { 
+	border: 0; 
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+}

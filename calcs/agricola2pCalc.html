@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test Calc</title>
+<style type="text/css">
+body 
+{ 
+	font-family: Rokkitt, sans-serif; 
+	background-color: #201f25;
+	color: #fff; 
+}
+.table
+{
+	display:table;
+	border-collapse:separate;
+	border-spacing:2px;
+	border:1px solid white;
+}
+.tbody
+{
+	display:table-row-group;
+}
+.row
+{
+	display:table-row;
+}
+.rowSummary
+{
+	display:table-row;
+	background-color:lightgrey;
+	text-align: center;
+	font-weight: bold;
+	color: black;
+}
+.col
+{
+	display:table-cell;
+	//border:1px solid black;
+	padding:7px;
+}
+input { 
+    text-align: left; 
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+</style>
+<script type="text/javascript">
+	function sheepBonus(p1){
+		var r = 0;
+		if(p1<=3){
+			r = -3;
+		}else if(p1>=8&&p1<=10){
+			r = 1;
+		}else if(p1>=11&&p1<=12){
+			r = 2;
+		}else if(p1>=13){
+			r=p1-10;
+		}
+		return r;
+	}
+	function pigBonus(p1){
+		var r = 0;
+		if(p1<=3){
+			r = -3;
+		}else if(p1>=7&&p1<=8){
+			r = 1;
+		}else if(p1>=9&&p1<=10){
+			r = 2;
+		}else if(p1>=11){
+			r=p1-8;
+		}
+		return r;
+	}
+	function cowBonus(p1){
+		var r = 0;
+		if(p1<=3){
+			r = -3;
+		}else if(p1>=6&&p1<=7){
+			r = 1;
+		}else if(p1>=8&&p1<=9){
+			r = 2;
+		}else if(p1>=10){
+			r=p1-7;
+		}
+		return r;
+	}
+	function horseBonus(p1){
+		var r = 0;
+		if(p1<=3){
+			r = -3;
+		}else if(p1>=5&&p1<=6){
+			r = 1;
+		}else if(p1>=7&&p1<=8){
+			r = 2;
+		}else if(p1>=9){
+			r=p1-6;
+		}
+		return r;
+	}
+	
+	function updateScores(){
+	var form = document.getElementById("scorecard");
+	var as1 = 0;var as2 = 0;
+	var bs1 = 0;var bs2 = 0;
+	var ts1 = 0;var ts2 = 0;
+	var s1sb = 0;var s2sb = 0;
+	var s1pb = 0;var s2pb = 0;
+	var s1cb = 0;var s2cb = 0;
+	var s1hb = 0;var s2hb = 0;
+	
+	//grab input values
+	var s1 = parseInt(form.elements["sheep1"].value) || 0;
+	var s2 = parseInt(form.elements["sheep2"].value) || 0;
+	var p1 = parseInt(form.elements["pig1"].value) || 0;
+	var p2 = parseInt(form.elements["pig2"].value) || 0;
+	var c1 = parseInt(form.elements["cow1"].value) || 0;
+	var c2 = parseInt(form.elements["cow2"].value) || 0;
+	var h1 = parseInt(form.elements["horse1"].value) || 0;
+	var h2 = parseInt(form.elements["horse2"].value) || 0;
+	var e1 = parseInt(form.elements["expscore1"].value) || 0;
+	var e2 = parseInt(form.elements["expscore2"].value) || 0;
+	var t1 = parseInt(form.elements["tilescore1"].value) || 0;
+	var t2 = parseInt(form.elements["tilescore2"].value) || 0;
+	
+	//calc scorecard
+	//calc animal scores
+	as1 = s1+p1+c1+h1;
+	as2 = s2+p2+c2+h2;
+	
+	//calc animal bonus scores
+	s1sb = sheepBonus(s1);
+	s1pb = pigBonus(p1);
+	s1cb = cowBonus(c1);
+	s1hb = horseBonus(h1);
+	s2sb = sheepBonus(s2);
+	s2pb = pigBonus(p2);
+	s2cb = cowBonus(c2);
+	s2hb = horseBonus(h2);
+	bs1 = s1sb+s1pb+s1cb+s1hb;
+	bs2 = s2sb+s2pb+s2cb+s2hb;
+	
+	//calc total score
+	ts1 = as1+bs1+e1+t1;
+	ts2 = as2+bs2+e2+t2;
+	
+	//update form elements
+	form.elements["animalscore1"].value = as1;
+	form.elements["animalscore2"].value = as2;
+	form.elements["bonusscore1"].value = bs1;
+	form.elements["bonusscore2"].value = bs2;
+	form.elements["s1sb"].value = s1sb;
+	form.elements["s1pb"].value = s1pb;
+	form.elements["s1cb"].value = s1cb;
+	form.elements["s1hb"].value = s1hb;
+	form.elements["s2sb"].value = s2sb;
+	form.elements["s2pb"].value = s2pb;
+	form.elements["s2cb"].value = s2cb;
+	form.elements["s2hb"].value = s2hb;
+	
+	form.elements["totalscore1"].value = ts1;
+	form.elements["totalscore2"].value = ts2;
+	}
+</script>
+</head>
+<body>
+<form id="scorecard" oninput="updateScores()">
+	<div class="table">
+		<div class="tbody">
+			<div class="row">
+				<div class="col"><label></label></div>
+				<div class="col"><label>Player1</label></div>
+				<div class="col"><label>Player2</label></div>
+			</div>
+			<div class="row">
+				<div class="col"><label>Sheep</label></div>
+				<div class="col"><input name="sheep1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col"><input name="sheep2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+			</div>
+			<div class="row">
+				<div class="col"><label>Pig</label></div>
+				<div class="col"><input name="pig1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col"><input name="pig2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+			</div>
+			<div class="row">
+				<div class="col"><label>Cow</label></div>
+				<div class="col"><input name="cow1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col"><input name="cow2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+			</div>
+			<div class="row">
+				<div class="col"><label>Horse</label></div>
+				<div class="col"><input name="horse1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col"><input name="horse2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+			</div>
+			<div class="rowSummary">
+				<div class="col"><label>SUM</label></div>
+				<div class="col"><output name="animalscore1">0</output></div>
+				<div class="col"><output name="animalscore2">0</output></div>
+			</div>
+			<div class="row">
+				<div class="col"><label>Sheep</label></div>
+				<div class="col"><input name="s1sb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col"><input name="s2sb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+			</div>
+			<div class="row">
+				<div class="col"><label>Pig</label></div>
+				<div class="col"><input name="s1pb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col"><input name="s2pb" type="number"  min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+			</div>
+			<div class="row">
+				<div class="col"><label>Cow</label></div>
+				<div class="col"><input name="s1cb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col"><input name="s2cb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+			</div>
+			<div class="row">
+				<div class="col"><label>Horse</label></div>
+				<div class="col"><input name="s1hb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col"><input name="s2hb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+			</div>
+			<div class="rowSummary">
+				<div class="col"><label>SUM</label></div>
+				<div class="col"><output name="bonusscore1">0</output></div>
+				<div class="col"><output name="bonusscore2">0</output></div>
+			</div>
+			<div class="row">
+				<div class="col"><label>EXPANDS</label></div>
+				<div class="col"><input name="expscore1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col"><input name="expscore2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+			</div>
+			<div class="row">
+				<div class="col"><label>TILES</label></div>
+				<div class="col"><input name="tilescore1" type="number"  min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col"><input name="tilescore2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+			</div>
+			<div class="rowSummary">
+				<div class="col"><label>TOTAL</label></div>
+				<div class="col"><output name="totalscore1">0</output></div>
+				<div class="col"><output name="totalscore2">0</output></div>
+			</div>
+		</div>
+	</div>
+</form>
+</body>
+</html>
