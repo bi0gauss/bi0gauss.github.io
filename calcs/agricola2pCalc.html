@@ -196,29 +196,29 @@ input[type=number]::-webkit-outer-spin-button {
 	<div class="table">
 		<div class="tbody">
 			<div class="row">
-				<div class="colLabel"><label>v1.0</label></div>
+				<div class="colLabel"><label>v1.1</label></div>
 				<div class="col" align="center"><label>Player1</label></div>
 				<div class="col" align="center"><label>Player2</label></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Sheep</label></div>
-				<div class="col" align="center"><input name="s1sheepcount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="s2sheepcount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s1sheepcount" type="number" pattern="\d*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s2sheepcount" type="number" pattern="\d*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Pig</label></div>
-				<div class="col" align="center"><input name="s1pigcount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="s2pigcount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s1pigcount" type="number" pattern="\d*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s2pigcount" type="number" pattern="\d*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Cow</label></div>
-				<div class="col" align="center"><input name="s1cowcount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="s2cowcount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s1cowcount" type="number" pattern="\d*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s2cowcount" type="number" pattern="\d*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Horse</label></div>
-				<div class="col" align="center"><input name="s1horsecount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="s2horsecount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s1horsecount" type="number" pattern="\d*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s2horsecount" type="number" pattern="\d*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="rowSummary">
 				<div class="col"><label>SUM</label></div>
@@ -227,23 +227,23 @@ input[type=number]::-webkit-outer-spin-button {
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Sheep</label></div>
-				<div class="col" align="center"><input name="s1sheepbonus" type="number" pattern="d*"[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
-				<div class="col" align="center"><input name="s2sheepbonus" type="number" pattern="d*"[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s1sheepbonus" type="number" pattern="\d*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s2sheepbonus" type="number" pattern="\d*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Pig</label></div>
-				<div class="col" align="center"><input name="s1pigbonus" type="number" pattern="d*"[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
-				<div class="col" align="center"><input name="s2pigbonus" type="number" pattern="d*"[0-9]*"  min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s1pigbonus" type="number" pattern="\d*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s2pigbonus" type="number" pattern="\d*"  min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Cow</label></div>
-				<div class="col" align="center"><input name="s1cowbonus" type="number" pattern="d*"[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
-				<div class="col" align="center"><input name="s2cowbonus" type="number" pattern="d*"[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s1cowbonus" type="number" pattern="\d*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s2cowbonus" type="number" pattern="\d*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Horse</label></div>
-				<div class="col" align="center"><input name="s1horsebonus" type="number" pattern="d*"[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
-				<div class="col" align="center"><input name="s2horsebonus" type="number" pattern="d*"[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s1horsebonus" type="number" pattern="\d*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s2horsebonus" type="number" pattern="\d*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="rowSummary">
 				<div class="col"><label>SUM</label></div>
@@ -252,13 +252,13 @@ input[type=number]::-webkit-outer-spin-button {
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>EXPANDS</label></div>
-				<div class="col" align="center"><input name="expscore1" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="expscore2" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="expscore1" type="number" pattern="\d*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="expscore2" type="number" pattern="\d*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>TILES</label></div>
-				<div class="col" align="center"><input name="tilescore1" type="number" pattern="d*"[0-9]*"  min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="tilescore2" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="tilescore1" type="number" pattern="\d*"  min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="tilescore2" type="number" pattern="\d*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="rowSummary">
 				<div class="col"><label>TOTAL</label></div>
