@@ -44,12 +44,18 @@ body
 .col
 {
 	display:table-cell;
-	//border:1px solid black;
 	padding:7px;
+}
+.colLabel
+{
+	display:table-cell;
+	padding:7px;
+	text-align: right;
+	width: 25%;
 }
 div {
     width: 90vw;
-	max-width: 600px;
+	max-width: 500px;
     height: 90vh;
 	height: 1px;
 }
@@ -186,27 +192,27 @@ input[type=number]::-webkit-outer-spin-button {
 	<div class="table">
 		<div class="tbody">
 			<div class="row">
-				<div class="col"><label></label></div>
+				<div class="colLabel"><label></label></div>
 				<div class="col" align="center"><label>Player1TT</label></div>
 				<div class="col" align="center"><label>Player2</label></div>
 			</div>
 			<div class="row">
-				<div class="col"><label>Sheep</label></div>
+				<div class="colLabel"><label>Sheep</label></div>
 				<div class="col" align="center"><input name="sheep1" type="text" pattern="[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 				<div class="col" align="center"><input name="sheep2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
-				<div class="col"><label>Pig</label></div>
+				<div class="colLabel"><label>Pig</label></div>
 				<div class="col" align="center"><input name="pig1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 				<div class="col" align="center"><input name="pig2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
-				<div class="col"><label>Cow</label></div>
+				<div class="colLabel"><label>Cow</label></div>
 				<div class="col" align="center"><input name="cow1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 				<div class="col" align="center"><input name="cow2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
-				<div class="col"><label>Horse</label></div>
+				<div class="colLabel"><label>Horse</label></div>
 				<div class="col" align="center"><input name="horse1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 				<div class="col" align="center"><input name="horse2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
@@ -216,22 +222,22 @@ input[type=number]::-webkit-outer-spin-button {
 				<div class="col"><output name="animalscore2">0</output></div>
 			</div>
 			<div class="row">
-				<div class="col"><label>Sheep</label></div>
+				<div class="colLabel"><label>Sheep</label></div>
 				<div class="col" align="center"><input name="s1sb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 				<div class="col" align="center"><input name="s2sb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
-				<div class="col"><label>Pig</label></div>
+				<div class="colLabel"><label>Pig</label></div>
 				<div class="col" align="center"><input name="s1pb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 				<div class="col" align="center"><input name="s2pb" type="number"  min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
-				<div class="col"><label>Cow</label></div>
+				<div class="colLabel"><label>Cow</label></div>
 				<div class="col" align="center"><input name="s1cb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 				<div class="col" align="center"><input name="s2cb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
-				<div class="col"><label>Horse</label></div>
+				<div class="colLabel"><label>Horse</label></div>
 				<div class="col" align="center"><input name="s1hb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 				<div class="col" align="center"><input name="s2hb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
@@ -241,12 +247,12 @@ input[type=number]::-webkit-outer-spin-button {
 				<div class="col" align="center"><output name="bonusscore2">0</output></div>
 			</div>
 			<div class="row">
-				<div class="col"><label>EXPANDS</label></div>
+				<div class="colLabel"><label>EXPANDS</label></div>
 				<div class="col" align="center"><input name="expscore1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 				<div class="col" align="center"><input name="expscore2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
-				<div class="col"><label>TILES</label></div>
+				<div class="colLabel"><label>TILES</label></div>
 				<div class="col" align="center"><input name="tilescore1" type="number"  min="0" max="50" oninput="validity.valid||(value='');"/></div>
 				<div class="col" align="center"><input name="tilescore2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
