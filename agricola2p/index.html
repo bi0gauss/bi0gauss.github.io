@@ -2,20 +2,20 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Agricola All Creatures Big and Small Score Calculator</title>
+<title>Agricola 2 All Creatures Big and Small Score Calculator</title>
 <style type="text/css">
 html {
     display: table;
     margin: auto;
 }
-body 
-{ 
+body
+{
 	padding-top: 1px;
 	display: table-cell;
     vertical-align: middle;
-	font-family: Rokkitt, sans-serif; 
+	font-family: Rokkitt, sans-serif;
 	background-color: #201f25;
-	color: #fff; 
+	color: #fff;
 }
 .table
 {
@@ -61,7 +61,7 @@ div {
     height: 85vh;
 	height: 1px;
 }
-input { 
+input {
     text-align: left;
 	width: 80%;
 }
@@ -70,10 +70,10 @@ select:focus,
 textarea {
   font-size: 16px;
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 </style>
 <script type="text/javascript">
@@ -112,10 +112,10 @@ input[type=number]::-webkit-outer-spin-button {
 					r2max :8,
 					r3min :9,
 					r3sub :6
-				}					
+				}
 			}
 		}
-		
+
 		if(count<=3){
 			r = -3;
 		}else if(count>=scoring.animals[animal]['r1min']&&count<=scoring.animals[animal]['r1max']){
@@ -127,7 +127,7 @@ input[type=number]::-webkit-outer-spin-button {
 		}
 		return r;
 	}
-	
+
 	function updateScores(){
 	var form = document.getElementById("scorecard");
 	var scoreObj = {
@@ -157,7 +157,7 @@ input[type=number]::-webkit-outer-spin-button {
 	}
 	var score1 = Object.create(scoreObj);
 	var score2 = Object.create(scoreObj);
-	
+
 	//grab input values
 	for (n in score1.animals){
 		score1.animals[n]['count'] = parseInt(form.elements["s1"+n+"count"].value) || 0;
@@ -177,14 +177,14 @@ input[type=number]::-webkit-outer-spin-button {
 	score2.exp = parseInt(form.elements["expscore2"].value) || 0;
 	score1.building = parseInt(form.elements["tilescore1"].value) || 0;
 	score2.building = parseInt(form.elements["tilescore2"].value) || 0;
-	
+
 	score1.grandtotal = score1.animalCount + score1.animalBonus + score1.exp + score1.building
 	score2.grandtotal = score2.animalCount + score2.animalBonus + score2.exp + score2.building
-	
+
 	//update form elements
 	form.elements["animalscore1"].value = score1.animalCount;
 	form.elements["animalscore2"].value = score2.animalCount;
-	form.elements["bonusscore1"].value = score1.animalBonus;	
+	form.elements["bonusscore1"].value = score1.animalBonus;
 	form.elements["bonusscore2"].value = score2.animalBonus;
 	form.elements["totalscore1"].value = score1.grandtotal;
 	form.elements["totalscore2"].value = score2.grandtotal;
