@@ -198,7 +198,7 @@ input[type=number]::-webkit-outer-spin-button {
 	<div class="table">
 		<div class="tbody">
 			<div class="row">
-				<div class="col version" align="left"><label>v1.4</label></div>
+				<div class="col version" align="left"><label>v1.5</label></div>
 				<div class="col" align="center"><label>Player1</label></div>
 				<div class="col" align="center"><label>Player2</label></div>
 			</div>
@@ -240,22 +240,38 @@ input[type=number]::-webkit-outer-spin-button {
 				<div class="col"><output name="animalscore2">0</output></div>
 			</div>
 			<div class="row">
-				<div class="colLabel"><label>Sheep</label></div>
+				<div class="colLabel">
+					<img style="max-width: 100%; height: 20px;" src="../images/coin.png" padding-right="5px"/>
+					<img style="max-width: 100%; height: 20px;" src="../images/sheep_2.png" padding-right="5px"/>
+					<label>Sheep</label>
+				</div>
 				<div class="col" align="center"><input name="s1sheepbonus" type="number" pattern="\d*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 				<div class="col" align="center"><input name="s2sheepbonus" type="number" pattern="\d*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
-				<div class="colLabel"><label>Pig</label></div>
+				<div class="colLabel">
+					<img style="max-width: 100%; height: 20px;" src="../images/coin.png" padding-right="5px"/>
+					<img style="max-width: 100%; height: 20px;" src="../images/pig_2.png" padding-right="5px"/>
+					<label>Pig</label>
+				</div>
 				<div class="col" align="center"><input name="s1pigbonus" type="number" pattern="\d*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 				<div class="col" align="center"><input name="s2pigbonus" type="number" pattern="\d*"  min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
-				<div class="colLabel"><label>Cow</label></div>
+				<div class="colLabel">
+					<img style="max-width: 100%; height: 20px;" src="../images/coin.png" padding-right="5px"/>
+					<img style="max-width: 100%; height: 20px;" src="../images/cow_2.png" padding-right="5px"/>
+					<label>Cow</label>
+				</div>
 				<div class="col" align="center"><input name="s1cowbonus" type="number" pattern="\d*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 				<div class="col" align="center"><input name="s2cowbonus" type="number" pattern="\d*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
-				<div class="colLabel"><label>Horse</label></div>
+				<div class="colLabel">
+					<img style="max-width: 100%; height: 20px;" src="../images/coin.png" padding-right="5px"/>
+					<img style="max-width: 100%; height: 20px;" src="../images/horse_2.png" padding-right="5px"/>
+					<label>Horse</label>
+				</div>
 				<div class="col" align="center"><input name="s1horsebonus" type="number" pattern="\d*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 				<div class="col" align="center"><input name="s2horsebonus" type="number" pattern="\d*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
@@ -265,12 +281,18 @@ input[type=number]::-webkit-outer-spin-button {
 				<div class="col" align="center"><output name="bonusscore2">0</output></div>
 			</div>
 			<div class="row">
-				<div class="colLabel"><label>EXPANDS</label></div>
+				<div class="colLabel">
+					<img style="max-width: 100%; height: 20px;" src="../images/expand_2.png" padding-right="5px"/>
+					<label>EXPANDS</label>
+				</div>
 				<div class="col" align="center"><input name="expscore1" type="number" pattern="\d*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 				<div class="col" align="center"><input name="expscore2" type="number" pattern="\d*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
-				<div class="colLabel"><label>TILES</label></div>
+				<div class="colLabel">
+					<img style="max-width: 100%; height: 20px;" src="../images/building_2.png" padding-right="5px"/>
+					<label>TILES</label>
+				</div>
 				<div class="col" align="center"><input name="tilescore1" type="number" pattern="\d*"  min="0" max="50" oninput="validity.valid||(value='');"/></div>
 				<div class="col" align="center"><input name="tilescore2" type="number" pattern="\d*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
