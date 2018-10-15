@@ -77,120 +77,117 @@ input[type=number]::-webkit-outer-spin-button {
 }
 </style>
 <script type="text/javascript">
-	function sheepBonus(p1){
+	function bonusCheck(animal,count){
 		var r = 0;
-		if(p1<=3){
-			r = -3;
-		}else if(p1>=8&&p1<=10){
-			r = 1;
-		}else if(p1>=11&&p1<=12){
-			r = 2;
-		}else if(p1>=13){
-			r=p1-10;
+		var scoring = {
+			animals : {
+				sheep : {
+					r1min :8,
+					r1max :10,
+					r2min :11,
+					r2max :12,
+					r3min :13,
+					r3sub :10
+				},
+				pig : {
+					r1min :7,
+					r1max :8,
+					r2min :9,
+					r2max :10,
+					r3min :11,
+					r3sub :8
+				},
+				cow : {
+					r1min :6,
+					r1max :7,
+					r2min :8,
+					r2max :9,
+					r3min :10,
+					r3sub: 7
+				},
+				horse : {
+					r1min :5,
+					r1max :6,
+					r2min :7,
+					r2max :8,
+					r3min :9,
+					r3sub :6
+				}					
+			}
 		}
-		return r;
-	}
-	function pigBonus(p1){
-		var r = 0;
-		if(p1<=3){
+		
+		if(count<=3){
 			r = -3;
-		}else if(p1>=7&&p1<=8){
+		}else if(count>=scoring.animals[animal]['r1min']&&count<=scoring.animals[animal]['r1max']){
 			r = 1;
-		}else if(p1>=9&&p1<=10){
+		}else if(count>=scoring.animals[animal]['r2min']&&count<=scoring.animals[animal]['r2max']){
 			r = 2;
-		}else if(p1>=11){
-			r=p1-8;
-		}
-		return r;
-	}
-	function cowBonus(p1){
-		var r = 0;
-		if(p1<=3){
-			r = -3;
-		}else if(p1>=6&&p1<=7){
-			r = 1;
-		}else if(p1>=8&&p1<=9){
-			r = 2;
-		}else if(p1>=10){
-			r=p1-7;
-		}
-		return r;
-	}
-	function horseBonus(p1){
-		var r = 0;
-		if(p1<=3){
-			r = -3;
-		}else if(p1>=5&&p1<=6){
-			r = 1;
-		}else if(p1>=7&&p1<=8){
-			r = 2;
-		}else if(p1>=9){
-			r=p1-6;
+		}else if(count>=scoring.animals[animal]['r3min']){
+			r=count-scoring.animals[animal]['r3sub'];
 		}
 		return r;
 	}
 	
 	function updateScores(){
 	var form = document.getElementById("scorecard");
-	var as1 = 0;var as2 = 0;
-	var bs1 = 0;var bs2 = 0;
-	var ts1 = 0;var ts2 = 0;
-	var s1sb = 0;var s2sb = 0;
-	var s1pb = 0;var s2pb = 0;
-	var s1cb = 0;var s2cb = 0;
-	var s1hb = 0;var s2hb = 0;
+	var scoreObj = {
+		animalCount : 0,
+		animalBonus : 0,
+		building : 0,
+		exp : 0,
+		grandtotal : 0,
+		animals : {
+			sheep : {
+				count : 0,
+				bonus : 0,
+			},
+			pig : {
+				count : 0,
+				bonus : 0,
+			},
+			cow : {
+				count : 0,
+				bonus : 0,
+			},
+			horse : {
+				count : 0,
+				bonus : 0
+			}
+		}
+	}
+	var score1 = scoreObj;
+	var score2 = scoreObj;
 	
 	//grab input values
-	var s1 = parseInt(form.elements["sheep1"].value) || 0;
-	var s2 = parseInt(form.elements["sheep2"].value) || 0;
-	var p1 = parseInt(form.elements["pig1"].value) || 0;
-	var p2 = parseInt(form.elements["pig2"].value) || 0;
-	var c1 = parseInt(form.elements["cow1"].value) || 0;
-	var c2 = parseInt(form.elements["cow2"].value) || 0;
-	var h1 = parseInt(form.elements["horse1"].value) || 0;
-	var h2 = parseInt(form.elements["horse2"].value) || 0;
-	var e1 = parseInt(form.elements["expscore1"].value) || 0;
-	var e2 = parseInt(form.elements["expscore2"].value) || 0;
-	var t1 = parseInt(form.elements["tilescore1"].value) || 0;
-	var t2 = parseInt(form.elements["tilescore2"].value) || 0;
+	for (n in score1.animals){
+		score1.animals[n]['count'] = parseInt(form.elements["s1"+n+"count"].value) || 0;
+		score1.animalCount += score1.animals[n]['count'];
+		score1.animals[n]['bonus'] = bonusCheck(n,score1.animals[n]['count']);
+		form.elements["s1"+n+"bonus"].value = score1.animals[n]['bonus'];
+		score1.animalBonus += score1.animals[n]['bonus'];
+	}
+	for (n in score2.animals){
+		score2.animals[n]['count'] = parseInt(form.elements["s2"+n+"count"].value) || 0;
+		score2.animalCount += score2.animals[n]['count'];
+		score2.animals[n]['bonus'] = bonusCheck(n,score2.animals[n]['count']);
+		form.elements["s2"+n+"bonus"].value = score1.animals[n]['bonus'];
+		score2.animalBonus += score2.animals[n]['bonus'];
+	}
+	score1.exp = parseInt(form.elements["expscore1"].value) || 0;
+	score2.exp = parseInt(form.elements["expscore2"].value) || 0;
+	score1.building = parseInt(form.elements["tilescore1"].value) || 0;
+	score2.building = parseInt(form.elements["tilescore2"].value) || 0;
 	
-	//calc scorecard
-	//calc animal scores
-	as1 = s1+p1+c1+h1;
-	as2 = s2+p2+c2+h2;
-	
-	//calc animal bonus scores
-	s1sb = sheepBonus(s1);
-	s1pb = pigBonus(p1);
-	s1cb = cowBonus(c1);
-	s1hb = horseBonus(h1);
-	s2sb = sheepBonus(s2);
-	s2pb = pigBonus(p2);
-	s2cb = cowBonus(c2);
-	s2hb = horseBonus(h2);
-	bs1 = s1sb+s1pb+s1cb+s1hb;
-	bs2 = s2sb+s2pb+s2cb+s2hb;
-	
-	//calc total score
-	ts1 = as1+bs1+e1+t1;
-	ts2 = as2+bs2+e2+t2;
+	score1.grandtotal = score1.animalCount + score1.animalBonus + score1.exp + score1.building
+	score2.grandtotal = score2.animalCount + score2.animalBonus + score2.exp + score2.building
 	
 	//update form elements
-	form.elements["animalscore1"].value = as1;
-	form.elements["animalscore2"].value = as2;
-	form.elements["bonusscore1"].value = bs1;
-	form.elements["bonusscore2"].value = bs2;
-	form.elements["s1sb"].value = s1sb;
-	form.elements["s1pb"].value = s1pb;
-	form.elements["s1cb"].value = s1cb;
-	form.elements["s1hb"].value = s1hb;
-	form.elements["s2sb"].value = s2sb;
-	form.elements["s2pb"].value = s2pb;
-	form.elements["s2cb"].value = s2cb;
-	form.elements["s2hb"].value = s2hb;
-	
-	form.elements["totalscore1"].value = ts1;
-	form.elements["totalscore2"].value = ts2;
+	form.elements["animalscore1"].value = score1.animalCount;
+	form.elements["animalscore2"].value = score2.animalCount;
+	form.elements["bonusscore1"].value = score1.animalBonus;	
+	form.elements["bonusscore2"].value = score2.animalBonus;
+	form.elements["totalscore1"].value = score1.grandtotal;
+	form.elements["totalscore2"].value = score2.grandtotal;
 	}
 </script>
 </head>
@@ -205,23 +202,23 @@ input[type=number]::-webkit-outer-spin-button {
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Sheep</label></div>
-				<div class="col" align="center"><input name="sheep1" type="text" pattern="[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="sheep2" type="text" pattern="[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s1sheepcount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s2sheepcount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Pig</label></div>
-				<div class="col" align="center"><input name="pig1" type="text" pattern="[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="pig2" type="text" pattern="[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s1pigcount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s2pigcount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Cow</label></div>
-				<div class="col" align="center"><input name="cow1" type="text" pattern="[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="cow2" type="text" pattern="[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s1cowcount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s2cowcount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Horse</label></div>
-				<div class="col" align="center"><input name="horse1" type="text" pattern="[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="horse2" type="text" pattern="[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s1horsecount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="s2horsecount" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="rowSummary">
 				<div class="col"><label>SUM</label></div>
@@ -230,23 +227,23 @@ input[type=number]::-webkit-outer-spin-button {
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Sheep</label></div>
-				<div class="col" align="center"><input name="s1sb" type="text" pattern="[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
-				<div class="col" align="center"><input name="s2sb" type="text" pattern="[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s1sheepbonus" type="number" pattern="d*"[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s2sheepbonus" type="number" pattern="d*"[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Pig</label></div>
-				<div class="col" align="center"><input name="s1pb" type="text" pattern="[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
-				<div class="col" align="center"><input name="s2pb" type="text" pattern="[0-9]*"  min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s1pigbonus" type="number" pattern="d*"[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s2pigbonus" type="number" pattern="d*"[0-9]*"  min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Cow</label></div>
-				<div class="col" align="center"><input name="s1cb" type="text" pattern="[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
-				<div class="col" align="center"><input name="s2cb" type="text" pattern="[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s1cowbonus" type="number" pattern="d*"[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s2cowbonus" type="number" pattern="d*"[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>Horse</label></div>
-				<div class="col" align="center"><input name="s1hb" type="text" pattern="[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
-				<div class="col" align="center"><input name="s2hb" type="text" pattern="[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s1horsebonus" type="number" pattern="d*"[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s2horsebonus" type="number" pattern="d*"[0-9]*" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="rowSummary">
 				<div class="col"><label>SUM</label></div>
@@ -255,13 +252,13 @@ input[type=number]::-webkit-outer-spin-button {
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>EXPANDS</label></div>
-				<div class="col" align="center"><input name="expscore1" type="text" pattern="[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="expscore2" type="text" pattern="[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="expscore1" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="expscore2" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
 				<div class="colLabel"><label>TILES</label></div>
-				<div class="col" align="center"><input name="tilescore1" type="text" pattern="[0-9]*"  min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="tilescore2" type="text" pattern="[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="tilescore1" type="number" pattern="d*"[0-9]*"  min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="tilescore2" type="number" pattern="d*"[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="rowSummary">
 				<div class="col"><label>TOTAL</label></div>
