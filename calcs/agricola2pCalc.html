@@ -42,7 +42,7 @@ body
 }
 div {
     width: 99vw;
-	//width: 600px;
+	width: 600px;
     height: 99vh;
 	height: 1px;
 }
@@ -185,7 +185,7 @@ input[type=number]::-webkit-outer-spin-button {
 			</div>
 			<div class="row">
 				<div class="col"><label>Sheep</label></div>
-				<div class="col" align="center"><input name="sheep1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="sheep1" type="text" pattern="[0-9]*" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 				<div class="col" align="center"><input name="sheep2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
