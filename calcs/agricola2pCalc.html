@@ -38,17 +38,20 @@ body
 	//border:1px solid black;
 	padding:7px;
 }
+div {
+    width: 100vw;
+	width: 400px;
+    height: 100vh;
+	height: 1px;
+}
 input { 
-    text-align: left; 
+    text-align: left;
+	width: 80%;
 }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
-}
-div {
-    width: 100vw;
-    height: 100vh;
 }
 </style>
 <script type="text/javascript">
@@ -171,32 +174,32 @@ div {
 </head>
 <body>
 <form id="scorecard" oninput="updateScores()">
-	<div width="100%" class="table">
-		<div width="100%" class="tbody">
+	<div class="table">
+		<div class="tbody">
 			<div class="row">
 				<div class="col"><label></label></div>
-				<div class="col"><label>Player1</label></div>
-				<div class="col"><label>Player2</label></div>
+				<div class="col" align="center"><label>Player1</label></div>
+				<div class="col" align="center"><label>Player2</label></div>
 			</div>
 			<div class="row">
 				<div class="col"><label>Sheep</label></div>
-				<div class="col"><input name="sheep1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col"><input name="sheep2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="sheep1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="sheep2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
 				<div class="col"><label>Pig</label></div>
-				<div class="col"><input name="pig1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col"><input name="pig2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="pig1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="pig2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
 				<div class="col"><label>Cow</label></div>
-				<div class="col"><input name="cow1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col"><input name="cow2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="cow1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="cow2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
 				<div class="col"><label>Horse</label></div>
-				<div class="col"><input name="horse1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col"><input name="horse2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="horse1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="horse2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="rowSummary">
 				<div class="col"><label>SUM</label></div>
@@ -205,38 +208,38 @@ div {
 			</div>
 			<div class="row">
 				<div class="col"><label>Sheep</label></div>
-				<div class="col"><input name="s1sb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
-				<div class="col"><input name="s2sb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s1sb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s2sb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
 				<div class="col"><label>Pig</label></div>
-				<div class="col"><input name="s1pb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
-				<div class="col"><input name="s2pb" type="number"  min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s1pb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s2pb" type="number"  min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
 				<div class="col"><label>Cow</label></div>
-				<div class="col"><input name="s1cb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
-				<div class="col"><input name="s2cb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s1cb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s2cb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="row">
 				<div class="col"><label>Horse</label></div>
-				<div class="col"><input name="s1hb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
-				<div class="col"><input name="s2hb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s1hb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
+				<div class="col" align="center"><input name="s2hb" type="number" min="-3" max="50" readonly tabIndex="-1" disabled/></div>
 			</div>
 			<div class="rowSummary">
 				<div class="col"><label>SUM</label></div>
-				<div class="col"><output name="bonusscore1">0</output></div>
-				<div class="col"><output name="bonusscore2">0</output></div>
+				<div class="col" align="center"><output name="bonusscore1">0</output></div>
+				<div class="col" align="center"><output name="bonusscore2">0</output></div>
 			</div>
 			<div class="row">
 				<div class="col"><label>EXPANDS</label></div>
-				<div class="col"><input name="expscore1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col"><input name="expscore2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="expscore1" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="expscore2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="row">
 				<div class="col"><label>TILES</label></div>
-				<div class="col"><input name="tilescore1" type="number"  min="0" max="50" oninput="validity.valid||(value='');"/></div>
-				<div class="col"><input name="tilescore2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="tilescore1" type="number"  min="0" max="50" oninput="validity.valid||(value='');"/></div>
+				<div class="col" align="center"><input name="tilescore2" type="number" min="0" max="50" oninput="validity.valid||(value='');"/></div>
 			</div>
 			<div class="rowSummary">
 				<div class="col"><label>TOTAL</label></div>
