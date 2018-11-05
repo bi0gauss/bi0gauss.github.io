@@ -1,0 +1,65 @@
+body {
+  font-family: arial;
+  background-color: #201f25;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+  }
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+input[type="number"],
+select:focus,
+textarea {
+  font-size: 16px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.scoretable {
+    border: 1px solid white;
+
+}
+.scoretable th {
+    font-weight: normal;
+} 
+.scoretable tr td {
+    background-color: #fff;
+}
+.scoretable tr .tdLabel {
+    background-color: #201f25;
+}
+.scoretable .trTotal {
+    background-color: lightgrey;
+    text-align: center;
+	font-weight: bold;
+	color: black;
+}
+
+.scoretable input {
+    padding: 2px auto;
+    border: none;
+    background-color:   transparent;
+    text-align: center;
+    width:  100%;
+}
