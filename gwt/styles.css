@@ -56,7 +56,7 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center; /* center checkbox horizontally */
     vertical-align: middle; /* center checkbox vertically */
 }
-.scoretable .trTotal {
+.scoretable .trTotal td {
     background-color: lightgrey;
     text-align: center;
     font-weight: bold;
@@ -69,21 +69,29 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: left;
     width:  100%;
 }
+.footerTable {
+    border: 1px solid lightgrey;
+    border-collapse: collapse;
+    padding: 0px;
+}
 .footerTable tr {
-    background-color: lightgrey;
+    background-color: #201f25;
+    color: black;
     font-weight:bold;
+    text-align: center;
 }
 .footerTable .trTitle {
-    background-color: #201f25;
+    background-color: lightgrey;
+    text-align: center;
 }
 
 a:link {
-	color:#000000;
-	text-decoration:none;
+	color:white;
+    text-decoration:none;
 }
 a:visited {
-	color:#000000;
-	text-decoration:none;
+	color:white;
+    text-decoration:none;
 }
 a:hover {
 	color:#969bda;
