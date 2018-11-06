@@ -29,6 +29,7 @@
         }
     
         var score = [];
+        var highscore=0,elm;
         for(var i=1; i<=4; i++){
             score[i] = Object.create(scoreObj);
             score[i].vpmoney = parseInt(form.elements["p"+i+"vpmoney"].value) || 0;
@@ -52,6 +53,18 @@
                 }
             }
             form.elements["totalscore"+i].value = score[i].total;
+            if(score[i].total >= highscore && score[i].total > 0){
+                highscore = score[i].total;
+            }
+        }
+        for(var j=1; j<=4; j++){
+            if(score[j].total == highscore && score[j].total > 0){
+                elm = document.getElementById("score"+j);
+                elm.style.backgroundColor = "green";
+            }else{
+                elm = document.getElementById("score"+j);
+                elm.style.backgroundColor = "white";
+            }
         }
     }
     </script>
@@ -62,7 +75,7 @@
             <div id="container">
                 <form id="scorecard" onchange="updateScores()" oninput="updateScores()">
                 <table name="scoretable" class="scoretable">
-                    <tr><th style="font-size: 11px">v1.25</th><th>Player1</th><th>Player2</th><th>Player3</th><th>Player4</th></tr>
+                    <tr><th style="font-size: 11px">v1.30</th><th>Player1</th><th>Player2</th><th>Player3</th><th>Player4</th></tr>
                     <tr>
                         <td class="tdLabel">
                             <img style="max-width: 100%;height: 25px;" src="images/vpmoney.png" padding-right="5px"/>
@@ -175,10 +188,10 @@
                     </tr>
                     <tr class="trTotal">
                         <td><label>TOTAL</label></td>
-                        <td><output name="totalscore1">0</output></td>
-                        <td><output name="totalscore2">0</output></td>
-                        <td><output name="totalscore3">0</output></td>
-                        <td><output name="totalscore4">0</output></td>
+                        <td id="score1"><output name="totalscore1">0</output></td>
+                        <td id="score2"><output name="totalscore2">0</output></td>
+                        <td id="score3"><output name="totalscore3">0</output></td>
+                        <td id="score4"><output name="totalscore4">0</output></td>
                     </tr>
                 </table>
                 </form>
