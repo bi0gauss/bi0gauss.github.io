@@ -61,6 +61,6 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 2px auto;
     border: none;
     background-color:   transparent;
-    text-align: center;
+    text-align: left;
     width:  100%;
 }
