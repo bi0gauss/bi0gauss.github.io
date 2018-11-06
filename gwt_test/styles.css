@@ -1,5 +1,5 @@
 body {
-  font-family: arial;
+  font-family: Rokkitt, sans-serif;
   background-color: #201f25;
   color: #fff;
 }
@@ -48,6 +48,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .scoretable tr .tdLabel {
     background-color: #201f25;
+    font-size: 14px;
 }
 .scoretable .trTotal {
     background-color: lightgrey;
