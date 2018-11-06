@@ -23,6 +23,10 @@ main {
   flex: 1;
   padding: 5px;
 }
+footer {
+    flex: 1;
+    padding: 5px;
+  }
 
 input[type="number"],
 select:focus,
@@ -37,7 +41,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .scoretable {
-    border: 1px solid white;
+    border: 1px solid lightgrey;
 
 }
 .scoretable th {
@@ -69,19 +73,19 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: left;
     width:  100%;
 }
-.footerTable {
-    border: 1px solid lightgrey;
-    border-collapse: collapse;
-    padding: 0px;
+.scoretable .links {
+    background-color: lightgrey;
 }
-.footerTable tr {
-    background-color: #201f25;
+.scoretable .links .linkTitleTd{
+    background-color: lightgrey;
     color: black;
     font-weight:bold;
     text-align: center;
 }
-.footerTable .trTitle {
-    background-color: lightgrey;
+.scoretable .links td{
+    background-color: #201f25;
+    color: white;
+    font-weight:bold;
     text-align: center;
 }
 
