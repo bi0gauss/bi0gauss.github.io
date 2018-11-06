@@ -45,13 +45,15 @@ input[type=number]::-webkit-outer-spin-button {
 } 
 .scoretable tr td {
     background-color: #fff;
-    text-align: center; /* center checkbox horizontally */
-    vertical-align: middle; /* center checkbox vertically */
 }
 .scoretable tr .tdLabel {
     background-color: #201f25;
     font-size: 14px;
     text-align: left; /* center checkbox horizontally */
+}
+.scoretable tr .tdCheckBox {
+    background-color: #201f25;
+    text-align: center; /* center checkbox horizontally */
     vertical-align: middle; /* center checkbox vertically */
 }
 .scoretable .trTotal {
