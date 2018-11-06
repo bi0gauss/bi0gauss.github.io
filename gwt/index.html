@@ -1,297 +1,193 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Great Western Trail Score Calculator</title>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#2d89ef">
-<meta name="theme-color" content="#ffffff">
-<style type="text/css">
-html {
-    display: table;
-    margin: auto;
-}
-body
-{
-	padding-top: 1px;
-	display: table-cell;
-    vertical-align: middle;
-	font-family: Rokkitt, sans-serif;
-	background-color: #201f25;
-	color: #fff;
-}
-.table
-{
-	display:table;
-	border-collapse:separate;
-	border:1px solid white;
-}
-.tbody
-{
-	display:table-row-group;
-}
-.row
-{
-	display:table-row;
-}
-.rowSummary
-{
-	display:table-row;
-	background-color:lightgrey;
-	text-align: center;
-	font-weight: bold;
-	color: black;
-}
-.col
-{
-	display:table-cell;
-	padding:1px;
-}
-.colSummary
-{
-	display:table-cell;
-	padding:1px;
-	width: 15%;
-}
-.colLabel
-{
-	display:table-cell;
-	padding:2px;
-	text-align: left;
-	width: 30%;
-	font-size: 14px;
-}
-.version label
-{
-	font-size: 11px;
-}
-div {
-    width: 90vw;
-	max-width: 400px;
-    height: 85vh;
-	height: 1px;
-}
-input {
-    text-align: left;
-	width: 60%;
-}
-input[type="number"],
-select:focus,
-textarea {
-  font-size: 16px;
-}
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-a:link {
-	color:#000000;
-	text-decoration:none;
-}
-a:visited {
-	color:#000000;
-	text-decoration:none;
-}
-a:hover {
-	color:#969bda;
-	text-decoration:none;
-}
-</style>
-<script type="text/javascript">
-	function updateScores(){
-	var form = document.getElementById("scorecard");
-	var scoreObj = {
-		vpmoney : 0,
-		buildings : 0,
-		cities : 0,
-		stations : 0,
-		hazards : 0,
-		cows : 0,
-		objectives : 0,
-		stationsmasters : 0,
-		workers : 0,
-		movementvp : 0,
-		endingvp : 0,
-		total : 0
-	}
-
-	var score = [];
-	for(var i=1; i<=4; i++){
-		score[i] = Object.create(scoreObj);
-		score[i].vpmoney = parseInt(form.elements["p"+i+"vpmoney"].value) || 0;
-		score[i].buildings = parseInt(form.elements["p"+i+"buildings"].value) || 0;
-		score[i].cities = parseInt(form.elements["p"+i+"cities"].value) || 0;
-		score[i].stations = parseInt(form.elements["p"+i+"stations"].value) || 0;
-		score[i].hazards = parseInt(form.elements["p"+i+"hazards"].value) || 0;
-		score[i].cows = parseInt(form.elements["p"+i+"cows"].value) || 0;
-		score[i].objectives = parseInt(form.elements["p"+i+"objs"].value) || 0;
-		score[i].stationsmasters = parseInt(form.elements["p"+i+"stationsmasters"].value) || 0;
-		score[i].workers = parseInt(form.elements["p"+i+"workers"].value) || 0;
-		if(form.elements["p"+i+"_3vp"].checked){
-			score[i].movementvp = 3;	
-		}
-		if(form.elements["p"+i+"_2vp"].checked){
-			score[i].endingvp = 2;	
-		}
-		for(n in score[i]){
-			if(n!="total"){
-				score[i].total += score[i][n];
-			}
-		}
-		form.elements["totalscore"+i].value = score[i].total;
-	}
-}
-</script>
-</head>
-<body>
-<form id="scorecard" onchange="updateScores()" oninput="updateScores()">
-	<div class="table">
-		<div class="tbody">
-			<div class="row">
-				<div class="col version" align="left"><label>v1.0</label></div>
-				<div class="col" align="center"><label>P1</label></div>
-				<div class="col" align="center"><label>P2</label></div>
-				<div class="col" align="center"><label>P3</label></div>
-				<div class="col" align="center"><label>P4</label></div>
-			</div>
-			<div class="row">
-				<div class="colLabel">
-					<img style="max-width: 100%;height: 25px;" src="images/vpmoney.png" padding-right="5px"/>
-					<label>Coins</label>
-				</div>
-				<div class="col" align="center"><input name="p1vpmoney" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p2vpmoney" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p3vpmoney" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p4vpmoney" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-			</div>
-			<div class="row">
-				<div class="colLabel">
-					<img style="max-width: 100%;height: 25px;" src="images/buildings.png" padding-right="5px"/>
-					<label>Buildings</label>
-				</div>
-				<div class="col" align="center"><input name="p1buildings" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p2buildings" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p3buildings" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p4buildings" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-			</div>
-			<div class="row">
-				<div class="colLabel">
-					<img style="max-width: 100%;height: 25px;" src="images/cities.png" padding-right="5px"/>
-					<label>Cities</label>
-				</div>
-				<div class="col" align="center"><input name="p1cities" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p2cities" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p3cities" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p4cities" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-			</div>
-			<div class="row">
-				<div class="colLabel">
-					<img style="max-width: 100%;height: 25px;" src="images/stations.png" padding-right="5px"/>
-					<label>Stations</label>
-				</div>
-				<div class="col" align="center"><input name="p1stations" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p2stations" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p3stations" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p4stations" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-			</div>
-			<div class="row">
-				<div class="colLabel">
-					<img style="max-width: 100%; height: 25px;" src="images/hazards.png" padding-right="5px"/>
-					<label>Hazards</label>
-				</div>
-				<div class="col" align="center"><input name="p1hazards" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p2hazards" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p3hazards" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p4hazards" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-			</div>
-			<div class="row">
-				<div class="colLabel">
-					<img style="max-width: 100%; height:25px;" src="images/cows.png" padding-right="5px"/>
-					<label>Cows</label>
-				</div>
-				<div class="col" align="center"><input name="p1cows" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p2cows" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p3cows" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p4cows" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-			</div>
-			<div class="row">
-				<div class="colLabel">
-					<img style="max-width: 100%; height: 25px;" src="images/objs.png" padding-right="5px"/>
-					<label>Objective</label>
-				</div>
-				<div class="col" align="center"><input name="p1objs" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p2objs" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p3objs" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p4objs" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-			</div>
-			<div class="row">
-				<div class="colLabel">
-					<img style="max-width: 100%; height: 25px;" src="images/stationsmasters.png" padding-right="5px"/>
-					<label>Station Tiles</label>
-				</div>
-				<div class="col" align="center"><input name="p1stationsmasters" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p2stationsmasters" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p3stationsmasters" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p4stationsmasters" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-			</div>
-			<div class="row">
-				<div class="colLabel">
-					<img style="max-width: 100%; height: 25px;" src="images/workers.png" padding-right="5px"/>
-					<label>Workers</label>
-				</div>
-				<div class="col" align="center"><input name="p1workers" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p2workers" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p3workers" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-				<div class="col" align="center"><input name="p4workers" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></div>
-			</div>
-			<div class="row">
-				<div class="colLabel">
-					<img style="max-width: 100%; height: 25px;" src="images/3vp.png" padding-right="5px"/>
-					<label>3VP</label>
-				</div>
-				<div class="col" align="center"><input name="p1_3vp" type="checkbox" /></div>
-				<div class="col" align="center"><input name="p2_3vp" type="checkbox" /></div>
-				<div class="col" align="center"><input name="p3_3vp" type="checkbox" /></div>
-				<div class="col" align="center"><input name="p4_3vp" type="checkbox" /></div>
-			</div>
-			<div class="row">
-				<div class="colLabel">
-					<img style="max-width: 100%; height: 25px;" src="images/2vp.png" padding-right="5px"/>
-					<label>2VP</label>
-				</div>
-				<div class="col" align="center"><input name="p1_2vp" type="checkbox" /></div>
-				<div class="col" align="center"><input name="p2_2vp" type="checkbox" /></div>
-				<div class="col" align="center"><input name="p3_2vp" type="checkbox" /></div>
-				<div class="col" align="center"><input name="p4_2vp" type="checkbox" /></div>
-			</div>
-			<div class="rowSummary">
-				<div class="col"><label>TOTAL</label></div>
-				<div class="colSummary"><output name="totalscore1">0</output></div>
-				<div class="colSummary"><output name="totalscore2">0</output></div>
-				<div class="colSummary"><output name="totalscore3">0</output></div>
-				<div class="colSummary"><output name="totalscore4">0</output></div>
-			</div>
-		</div>
-	</div>
-</form>
-<br /><br />
-<div class="table">
-		<div class="tbody">
-			<div class="row">
-					<label><b><center>Other Resources</center></b></label>
-			</div>
-			<div class="rowSummary">
-				<a href="https://bgg.cc/boardgame/193738/great-western-trail">BGG</a>
-			</div>
-			<div class="rowSummary">
-				<a href="https://bgg.cc/filepage/137068/great-western-trail-english-rule-book">Rules PDF</a>
-			</div>
-		</div>
-</div>
-</body>
+  <head>
+    <title>Hello!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript">
+        function updateScores(){
+        var form = document.getElementById("scorecard");
+        var scoreObj = {
+            vpmoney : 0,
+            buildings : 0,
+            cities : 0,
+            stations : 0,
+            hazards : 0,
+            cows : 0,
+            objectives : 0,
+            stationsmasters : 0,
+            workers : 0,
+            movementvp : 0,
+            endingvp : 0,
+            total : 0
+        }
+    
+        var score = [];
+        for(var i=1; i<=4; i++){
+            score[i] = Object.create(scoreObj);
+            score[i].vpmoney = parseInt(form.elements["p"+i+"vpmoney"].value) || 0;
+            score[i].buildings = parseInt(form.elements["p"+i+"buildings"].value) || 0;
+            score[i].cities = parseInt(form.elements["p"+i+"cities"].value) || 0;
+            score[i].stations = parseInt(form.elements["p"+i+"stations"].value) || 0;
+            score[i].hazards = parseInt(form.elements["p"+i+"hazards"].value) || 0;
+            score[i].cows = parseInt(form.elements["p"+i+"cows"].value) || 0;
+            score[i].objectives = parseInt(form.elements["p"+i+"objs"].value) || 0;
+            score[i].stationsmasters = parseInt(form.elements["p"+i+"stationsmasters"].value) || 0;
+            score[i].workers = parseInt(form.elements["p"+i+"workers"].value) || 0;
+            if(form.elements["p"+i+"_3vp"].checked){
+                score[i].movementvp = 3;	
+            }
+            if(form.elements["p"+i+"_2vp"].checked){
+                score[i].endingvp = 2;	
+            }
+            for(n in score[i]){
+                if(n!="total"){
+                    score[i].total += score[i][n];
+                }
+            }
+            form.elements["totalscore"+i].value = score[i].total;
+        }
+    }
+    </script>
+  </head>
+  <body>
+   <main>
+     <div class="box content">
+            <div id="container">
+                <form id="scorecard" onchange="updateScores()" oninput="updateScores()">
+                <table name="scoretable" class="scoretable">
+                    <tr><th style="font-size: 11px">v1.1</th><th>Player1</th><th>Player2</th><th>Player3</th><th>Player4</th></tr>
+                    <tr>
+                        <td class="tdLabel">
+                            <img style="max-width: 100%;height: 25px;" src="images/vpmoney.png" padding-right="5px"/>
+                            <label>Coins</label>
+                        </td>
+                        <td><input name="p1vpmoney" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p2vpmoney" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p3vpmoney" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p4vpmoney" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                    </tr>
+                    <tr>
+                        <td class="tdLabel">
+                            <img style="max-width: 100%;height: 25px;" src="images/buildings.png" padding-right="5px"/>
+                            <label>Buildings</label>
+                        </td>
+                        <td><input name="p1buildings" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p2buildings" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p3buildings" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p4buildings" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                    </tr>
+                    <tr>
+                        <td class="tdLabel">
+                            <img style="max-width: 100%;height: 25px;" src="images/cities.png" padding-right="5px"/>
+                            <label>Cities</label>
+                        </td>
+                        <td><input name="p1cities" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p2cities" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p3cities" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p4cities" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                    </tr>
+                    <tr>
+                        <td class="tdLabel">
+                            <img style="max-width: 100%;height: 25px;" src="images/stations.png" padding-right="5px"/>
+                            <label>Stations</label>
+                        </td>
+                        <td><input name="p1stations" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p2stations" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p3stations" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p4stations" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                    </tr>
+                    <tr>
+                        <td class="tdLabel">
+                            <img style="max-width: 100%; height: 25px;" src="images/hazards.png" padding-right="5px"/>
+                            <label>Hazards</label>
+                        </td>
+                        <td><input name="p1hazards" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p2hazards" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p3hazards" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p4hazards" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                    </tr>
+                    <tr>
+                        <td class="tdLabel">
+                            <img style="max-width: 100%; height:25px;" src="images/cows.png" padding-right="5px"/>
+                            <label>Cows</label>
+                        </td>
+                        <td><input name="p1cows" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p2cows" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p3cows" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p4cows" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                    </tr>
+                    <tr>
+                        <td class="tdLabel">
+                            <img style="max-width: 100%; height: 25px;" src="images/objs.png" padding-right="5px"/>
+                            <label>Objective</label>
+                        </td>
+                        <td><input name="p1objs" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p2objs" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p3objs" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p4objs" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                    </tr>
+                    <tr>
+                        <td class="tdLabel">
+                            <img style="max-width: 100%; height: 25px;" src="images/stationsmasters.png" padding-right="5px"/>
+                            <label>Station Tiles</label>
+                        </td>
+                        <td><input name="p1stationsmasters" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p2stationsmasters" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p3stationsmasters" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p4stationsmasters" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                    </tr>
+                    <tr>
+                        <td class="tdLabel">
+                            <img style="max-width: 100%; height: 25px;" src="images/workers.png" padding-right="5px"/>
+                            <label>Workers</label>
+                        </td>
+                        <td><input name="p1workers" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p2workers" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p3workers" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                        <td><input name="p4workers" type="number" pattern="\d*" min="0" max="100" oninput="validity.valid||(value='');"/></td>
+                    </tr>
+                    <tr>
+                        <td class="tdLabel">
+                            <img style="max-width: 100%; height: 25px;" src="images/3vp.png" padding-right="5px"/>
+                            <label>3VP</label>
+                        </td>
+                        <td class="tdCheckBox"><input name="p1_3vp" type="checkbox" /></td>
+                        <td class="tdCheckBox"><input name="p2_3vp" type="checkbox" /></td>
+                        <td class="tdCheckBox"><input name="p3_3vp" type="checkbox" /></td>
+                        <td class="tdCheckBox"><input name="p4_3vp" type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <td class="tdLabel">
+                            <img style="max-width: 100%; height: 25px;" src="images/2vp.png" padding-right="5px"/>
+                            <label>2VP</label>
+                        </td>
+                        <td class="tdCheckBox"><input name="p1_2vp" type="checkbox" /></td>
+                        <td class="tdCheckBox"><input name="p2_2vp" type="checkbox" /></td>
+                        <td class="tdCheckBox"><input name="p3_2vp" type="checkbox" /></td>
+                        <td class="tdCheckBox"><input name="p4_2vp" type="checkbox" /></td>
+                    </tr>
+                    <tr class="trTotal">
+                        <td><label>TOTAL</label></td>
+                        <td><output name="totalscore1">0</output></td>
+                        <td><output name="totalscore2">0</output></td>
+                        <td><output name="totalscore3">0</output></td>
+                        <td><output name="totalscore4">0</output></td>
+                    </tr>
+                </table>
+                </form>
+            </div>
+    </div>
+     </main>
+     <br />
+     <footer>
+        <table name="otherLinks" class="footerTable">
+            <tr class="trFooterTitle"><th>Other Resources</th></tr>
+            <tr><td><a href="https://bgg.cc/boardgame/193738/great-western-trail">BGG</a></td></tr>
+            <tr><td><a href="https://bgg.cc/filepage/137068/great-western-trail-english-rule-book">Rules PDF</a></td></tr>
+        </table>
+     </footer>
+  </body>
 </html>
