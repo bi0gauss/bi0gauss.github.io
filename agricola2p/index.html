@@ -195,6 +195,24 @@ input[type=number]::-webkit-outer-spin-button {
 	form.elements["bonusscore2"].value = score2.animalBonus;
 	form.elements["totalscore1"].value = score1.grandtotal;
 	form.elements["totalscore2"].value = score2.grandtotal;
+
+	var elm;
+	if(score1.grandtotal > score2.grandtotal){
+		elm = document.getElementById("score1");
+		elm.style.backgroundColor = "green";
+		elm = document.getElementById("score2");
+		elm.style.backgroundColor = "lightgrey";
+	}else if(score1.grandtotal == score2.grandtotal){
+		elm = document.getElementById("score1");
+		elm.style.backgroundColor = "green";
+		elm = document.getElementById("score2");
+		elm.style.backgroundColor = "green";
+	}else{
+		elm = document.getElementById("score1");
+		elm.style.backgroundColor = "lightgrey";
+		elm = document.getElementById("score2");
+		elm.style.backgroundColor = "green";
+	}
 	}
 </script>
 </head>
@@ -203,7 +221,7 @@ input[type=number]::-webkit-outer-spin-button {
 	<div class="table">
 		<div class="tbody">
 			<div class="row">
-				<div class="col version" align="left"><label>v1.5</label></div>
+				<div class="col version" align="left"><label>v1.51</label></div>
 				<div class="col" align="center"><label>Player1</label></div>
 				<div class="col" align="center"><label>Player2</label></div>
 			</div>
@@ -303,8 +321,8 @@ input[type=number]::-webkit-outer-spin-button {
 			</div>
 			<div class="rowSummary">
 				<div class="col"><label>TOTAL</label></div>
-				<div class="col"><output name="totalscore1">0</output></div>
-				<div class="col"><output name="totalscore2">0</output></div>
+				<div class="col" id="score1"><output name="totalscore1">0</output></div>
+				<div class="col" id="score2"><output name="totalscore2">0</output></div>
 			</div>
 		</div>
 	</div>
