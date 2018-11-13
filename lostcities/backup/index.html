@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lost Cities Score Calculator</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js">
+    </script>
+    <script type='text/javascript'>
+        var player = "Player1";
+        var round = "round1";
+        var summary = {
+            total : 0,
+            round1 : {
+                score : 0,
+                yellow : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },
+                blue : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },
+                white : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },  
+                red : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },  
+                green : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                }        
+            },
+            round2 : {
+                score : 0,
+                yellow : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },
+                blue : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },
+                white : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },  
+                red : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },  
+                green : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                }        
+            },
+            round3 : {
+                score : 0,
+                yellow : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },
+                blue : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },
+                white : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },  
+                red : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },  
+                green : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                }        
+            }
+            
+        }
+        var scores = [];
+        scores["Player1"] = Object.create(summary);
+        scores["Player2"] = Object.create(summary);
+        
+        function updateScore(){
+            var numOfSelectedCards = 0;
+            var tempScore = {
+                score : 0,
+                yellow : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },
+                blue : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },
+                white : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },  
+                red : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                },  
+                green : {
+                    cards: ['0','0','0','0','0','0','0','0','0','0','0','0'],
+                    count : 0,
+                    total : 0,
+                    bonus : 0,
+                    score : 0
+                }        
+        }
+            console.log("------------");
+            $('.expedition').each(function (e){
+                var $elm = $(this);
+                numOfSelectedCards = $elm.find('.selected').length;
+                var multiplier = 1;
+
+                if(numOfSelectedCards > 0 ){
+                    var color = $elm.data('color');
+                    
+                    //get multipliers
+                    multiplier = $elm.find('.investment.selected').length + 1;
+
+                    //add up cards
+                    $elm.find('.selected:not(.investment)').each(function (e){
+                        tempScore[color]['count'] += Number($(this).html());
+                    });
+
+                    //subtract investment costs
+                   tempScore[color]['total'] =tempScore[color]['count'] - 20;
+
+                    //check if bonus
+                    if(numOfSelectedCards >=8){
+                       tempScore[color]['bonus'] = 20;
+                    }
+
+                    //total up each color
+                   tempScore[color]['score'] =  (tempScore[color]['total'] * multiplier) +tempScore[color]['bonus'];
+
+                    //total all colors
+                   tempScore.score +=tempScore[color]['score'];
+
+                    updateTotalScore();
+                                        
+                    console.log(player+" "+color+" "+tempScore[color]['count']+"-20="+tempScore[color]['total']+
+                    "*"+multiplier+"+"+tempScore[color]['bonus']+"= "+tempScore[color]['score']);
+                    console.log("TOTAL: "+tempScore.score);
+                }
+            });
+            function updateTotalScore(){
+            $('#TotalScore').text(tempScore.score);
+                if(tempScore.score < 0){
+                    $('#TotalScore').addClass('negative');
+                }else{
+                    $('#TotalScore').removeClass('negative');
+                }
+            }
+        } 
+
+        $(document).ready(function(){
+            $('body').on("click",'section.expedition ul li',function(e) {
+                $item = $(this);
+                $item.toggleClass('selected');
+                if($item.hasClass('investment')){
+                    if($item.hasClass('selected')){
+                        var numOfInvestment = $item.parent().find('.investment').length;
+                        console.log(numOfInvestment);
+                        if (numOfInvestment < 3){
+                            $item.clone().insertBefore($item).removeClass('selected');    
+                        }
+                    }
+                }
+                updateScore();
+            });
+
+            $('body').on("click",'section.players ul li',function(e) {
+                player = $(this).data('player');
+                $('section.expedition').find('li.selected').each(function (e){
+                    $(this).removeClass('selected');
+                });
+                updateTotalScore();
+            });
+        });
+    </script>
+  </head>
+  <body>
+        <section class ="players">
+            <div>
+                <ul>
+                    <li data-player="Player1">Player1</li>
+                    <li data-player="Player2">Player2</li>
+                </ul>
+            </div>
+        </section>
+        <section class="expedition yellow" data-color="yellow">
+                <ul><h2>Egyptian Desert</h2></ul>
+                <ul>
+                    <li class="investment">I</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                </ul>
+        </section>
+        <section class="expedition blue" data-color="blue">
+                <ul class="header"></ul><h2>Atlantis</h2></ul>
+                <ul>
+                    <li class="investment">I</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                </ul>
+        </section>
+        <section class="expedition white" data-color="white">
+                <ul class="header"><h2>Himalaya Mountains</h2></ul>
+                <ul>
+                    <li class="investment">I</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                </ul>
+        </section>
+        <section class="expedition green" data-color="green">
+                <ul class="header"><h2>Rain Forest</h2></ul>
+                <ul>
+                    <li class="investment">I</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                </ul>
+        </section>
+        <section class="expedition red" data-color="red">
+                <ul class="header"><h2>Ancient Volcanoes</h2></ul>
+                <ul>
+                    <li class="investment">I</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                </ul>
+        </section>
+        <section class="score">
+            <ul class="header"><h2>TotalScore</h2></ul>
+            <ul>
+                <li id="TotalScore">0</li>
+            </ul>
+        </section>
+  </body>
+</html>
