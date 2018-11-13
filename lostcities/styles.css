@@ -22,19 +22,18 @@ section {
     border-bottom: 2px solid #333; 
     height: 120px;
 }
-section.players {  
+section.players, section.rounds{  
     margin: 0 0;
     padding: 0 0; 
     border: 1px;
     border-bottom: 2px solid #333;
     height: 55px;
 }
-section.players ul {  
-    text-align: center;
+section.players li.selected, section.rounds li.selected{  
+    color: forestgreen;
 }
-section.players li {
+section.players ul, section.rounds ul{  
     text-align: center;
-    display: inline-block;
 }
 section.players ul li{  
     padding: 0 0 0 0;
@@ -44,6 +43,16 @@ section.players ul li{
     columns: 2;
     -webkit-columns: 2;
     -moz-columns: 2;
+}
+section.rounds ul li{
+    padding: 0 0 0 0;
+    margin: auto;
+    display: inline-block;
+    border: 0px;
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;  
+    width: 30%;  
 }
 section ul { 
     margin: 0; 
@@ -74,15 +83,34 @@ section ul li {
     -ms-user-select: none; /* IE 10+ */
     user-select: none; /* Standard syntax */
 }
-section:not(.players) ul li:last-child { 
+section:not(.players .rounds) ul li:last-child { 
     margin-right: 0; 
     padding: 12px 7px; 
+}
+section.score ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    width: 100%;
+    cursor: initial;
+}
+section.score li{
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+    width: 100%;
+    cursor: initial;
 }
 section.score ul li {
     margin: 0;
     border: 0px;
-    padding: 0 0 0 30px;
+    padding: 0 0 0 0;
+    margin: auto;
+    display: inline-block;
     color: forestgreen;
+}
+section.score ul li.header {
+    color: white;
 }
 section.score ul li.negative {
     border: 0px;

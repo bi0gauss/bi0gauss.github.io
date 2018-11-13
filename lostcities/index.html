@@ -227,27 +227,34 @@
 
                     scores[player].colors[c].rounds[round].score = (scores[player].colors[c].rounds[round].total * multiplier) + scores[player].colors[c].rounds[round].bonus;
 
-                    scores[player][round+"score"] +=scores[player].colors[c].rounds[round].score;
+                    scores[player][round+"score"] += scores[player].colors[c].rounds[round].score;
+                    scores[player].total = scores[player]["round1score"]+scores[player]["round2score"]+scores[player]["round3score"];
 
-                    updateTotalScore();
-
-                    console.log("---------");
+                                        console.log("---------");
                     console.log("Player: "+player);
+                    console.log("Round: "+round);
                     console.log("Color: "+c+" "+scores[player].colors[c].rounds[round].count+"-20="+scores[player].colors[c].rounds[round].total+
                     "*"+multiplier+"+"+scores[player].colors[c].rounds[round].bonus+"= "+scores[player].colors[c].rounds[round].score);
 
                     console.log("TOTAL: "+scores[player][round+"score"]);
                 }
+                updateTotalScore();
             }
 
             function updateTotalScore(){
-            $('#TotalScore').text(scores[player][round+"score"]);
+                $('#RoundScore').text(scores[player][round+"score"]);
                 if(scores[player][round+"score"] < 0){
+                    $('#RoundScore').addClass('negative');
+                }else{
+                    $('#RoundScore').removeClass('negative');
+                }
+                $('#TotalScore').text(scores[player].total);
+                if(scores[player].total < 0){
                     $('#TotalScore').addClass('negative');
                 }else{
                     $('#TotalScore').removeClass('negative');
                 }
-            }
+            }   
         } 
 
         $(document).ready(function(){
@@ -272,7 +279,7 @@
                     if($item.hasClass('investment')){
                         scores[player].colors[color].rounds[round].cards['investments'] = $item.parent().find('.investment.selected').length;
                     }else{
-                        scores[player].summary.colors[color].rounds[round].cards["c"+$item.html()] = 0;     
+                        scores[player].colors[color].rounds[round].cards["c"+$item.html()] = 0;     
                     }
                 }
                 updateScore();
@@ -280,6 +287,21 @@
 
             $('body').on("click",'section.players ul li',function(e) {
                 player = $(this).data('player');
+                $(this).parent().find('li').removeClass('selected');
+                $(this).addClass('selected');
+
+                $('section.expedition').find('li.selected').each(function (e){
+                    $(this).removeClass('selected');
+                });
+                updateSelected();
+                updateScore();
+            });
+
+            $('body').on("click",'section.rounds ul li',function(e) {
+                round = $(this).data('round');
+                $(this).parent().find('li').removeClass('selected');
+                $(this).addClass('selected');
+
                 $('section.expedition').find('li.selected').each(function (e){
                     $(this).removeClass('selected');
                 });
@@ -293,8 +315,17 @@
         <section class ="players">
             <div>
                 <ul>
-                    <li data-player="Player1">Player1</li>
+                    <li data-player="Player1" class="selected">Player1</li>
                     <li data-player="Player2">Player2</li>
+                </ul>
+            </div>
+        </section>
+        <section class ="rounds">
+            <div>
+                <ul>
+                    <li data-round="round1" class="selected">Round1</li>
+                    <li data-round="round2">Round2</li>
+                    <li data-round="round3">Round3</li>
                 </ul>
             </div>
         </section>
@@ -374,10 +405,16 @@
                 </ul>
         </section>
         <section class="score">
-            <ul class="header"><h2>TotalScore</h2></ul>
-            <ul>
-                <li id="TotalScore">0</li>
-            </ul>
+            <div>
+                <ul>
+                    <li class="header"><h2>Round Score</h2></li>
+                    <li class="header"><h2>Total Score</h2></li>
+                </ul>
+                <ul>
+                    <li id="RoundScore">0</li>
+                    <li id="TotalScore">0</li>
+                </ul>
+            </div>
         </section>
   </body>
 </html>
