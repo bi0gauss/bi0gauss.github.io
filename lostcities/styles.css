@@ -24,6 +24,9 @@ i.fas {
     padding-left: 20px;
     font-size: 35px;
     color: yellow;
+    -webkit-text-fill-color: yellow; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 section { 
     margin: 0 0; 
