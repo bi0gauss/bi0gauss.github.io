@@ -181,9 +181,7 @@
                         }
                     }else{
                         if(scores[player].colors[c].rounds[round].cards[card] > 0){
-                            console.log("Im here");
                             var index = (Number)(card.substring(1)) + $item.find('.investment').length - 2;
-                            console.log(index);
                             $item.find("li:eq("+index+")").addClass('selected');
                         }
                     }
@@ -192,8 +190,6 @@
         }
 
         function updateScore(){
-            console.log("------------");
-
             scores[player][round+"score"] = 0;
 
             for(c in scores[player].colors){
@@ -205,7 +201,6 @@
                 scores[player].colors[c].rounds[round].score = 0;
                 
                 for(card in scores[player].colors[c].rounds[round].cards){
-                    //console.log(card);
                     if(card == 'investments'){
                         if(scores[player].colors[c].rounds[round].cards['investments'] > 0){
                             numOfSelectedCards += scores[player].colors[c].rounds[round].cards['investments'];
@@ -230,13 +225,13 @@
                     scores[player][round+"score"] += scores[player].colors[c].rounds[round].score;
                     scores[player].total = scores[player]["round1score"]+scores[player]["round2score"]+scores[player]["round3score"];
 
-                                        console.log("---------");
+                    /*console.log("---------");
                     console.log("Player: "+player);
                     console.log("Round: "+round);
                     console.log("Color: "+c+" "+scores[player].colors[c].rounds[round].count+"-20="+scores[player].colors[c].rounds[round].total+
                     "*"+multiplier+"+"+scores[player].colors[c].rounds[round].bonus+"= "+scores[player].colors[c].rounds[round].score);
 
-                    console.log("TOTAL: "+scores[player][round+"score"]);
+                    console.log("TOTAL: "+scores[player][round+"score"]);*/
                 }
                 updateTotalScore();
             }
@@ -412,8 +407,8 @@
                     <li class="header">Total Score</li>
                 </ul>
                 <ul>
-                    <li id="RoundScore">0</li>
-                    <li id="TotalScore">0</li>
+                    <li id="RoundScore" class="scorevalues">0</li>
+                    <li id="TotalScore" class="scorevalues">0</li>
                 </ul>
             </div>
         </section>
