@@ -1,8 +1,12 @@
 @media (min-width:700px){
     .content {
-        width: 1fr;
         max-width: 700px;
-        align-content: center;
+        margin: 0 auto;
+    }
+}
+@media (max-width:700px){
+    .content {
+        width: 1fr;
         margin: 0 auto;
     }
 }
