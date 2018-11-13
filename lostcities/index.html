@@ -250,16 +250,17 @@
                 }else{
                     $('#TotalScore').removeClass('negative');
                 }
+                var icon = '<i id="winner" class="far fa-gem"></i>';
                 if(scores["Player1"].total > scores["Player2"].total){
                     if($('#winner').length){
                         $('#winner').remove();
                     }
-                    $('#Player1').append('<i id="winner" class="fas fa-trophy"></i>');
+                    $('#Player1').append(icon);
                 }else if(scores["Player2"].total > scores["Player1"].total){
                     if($('#winner').length){
                         $('#winner').remove();
                     }
-                    $('#Player2').append('<i id="winner" class="fas fa-trophy"></i>');
+                    $('#Player2').append(icon);
                 }
             }   
         } 
