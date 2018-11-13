@@ -20,7 +20,7 @@ section {
     margin: 0 0; 
     padding: 5px 0 10px; 
     border-bottom: 2px solid #333; 
-    height: 100px;
+    height: 105px;
 }
 section.players, section.rounds{  
     margin: 0 0;
@@ -130,6 +130,9 @@ section ul li {
     -moz-user-select: none; /* Firefox 2+ */
     -ms-user-select: none; /* IE 10+ */
     user-select: none; /* Standard syntax */
+}
+section.expedition ul li { 
+    font-size: 40px;
 }
 section.expedition ul li:last-child { 
     margin-right: 0; 
