@@ -1,6 +1,7 @@
 @media (max-width: 720px) {
     body{
         max-width: 100%;
+        min-height: 100vh;
     }
 }
 @media (min-width: 720px) {
