@@ -1,12 +1,21 @@
+@media (min-width:480px) and (max-width: 700px){
+    body {
+        width: 100%;
+    }
+}
+@media {
+    body {
+        max-width: 700px;
+    }
+}
 body {
-    width: 100%;
     margin:0 auto;
     font-family: Rokkitt, sans-serif;
     background-color: #201f25;
     color: #fff;
   }
 h2 { 
-    font-size: 35px; 
+    font-size: 30px; 
     clear: both; 
     margin: 0px 0 5px; 
     padding-right: 10px; 
@@ -15,16 +24,16 @@ h2 {
 }
 section { 
     margin: 0 0; 
-    padding: 10px 0; 
+    padding: 5px 0 10px; 
     border-bottom: 2px solid #333; 
-    height: 120px;
+    height: 100px;
 }
 section.players, section.rounds{  
     margin: 0 0;
     padding: 0 0; 
     border: 1px;
     border-bottom: 2px solid #333;
-    height: 55px;
+    height: 43px;
 }
 section.players li.selected, section.rounds li.selected{  
     color: #0b7ca1;
@@ -73,7 +82,7 @@ section ul li {
     margin-right: 6px;
     display: block;
     float: left;
-    font-size: 44px;
+    font-size: 35px;
     padding: 12px;
     background-color: #201f25;
     border: 1px solid #333;
