@@ -30,32 +30,77 @@ section.players, section.rounds{
     height: 43px;
 }
 section.players li.selected, section.rounds li.selected{  
-    color: #0b7ca1;
+    color: white;
+    background-color: #0b7ca1;
+}
+section.players li.selected:hover, section.rounds li.selected:hover{  
+    color: white;
+    background-color: #0b7ca1;
 }
 section.players li:hover, section.rounds li:hover{  
     color: #0b7ca1;
 }
-section.players ul, section.rounds ul{  
+section.players ul, section.rounds ul, section.score ul{  
     text-align: center;
 }
-section.players ul li{  
+section.players ul li {
+    border: 0px;
     padding: 0 0 0 0;
     margin: auto;
     display: inline-block;
-    border: 0px;
+    color: white;
+}
+section.players ul {
     columns: 2;
     -webkit-columns: 2;
     -moz-columns: 2;
+    cursor: initial;
+}
+section.players li{
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+    width: 100%;
+    cursor: initial;
 }
 section.rounds ul li{
+    border: 0px;
     padding: 0 0 0 0;
     margin: auto;
     display: inline-block;
-    border: 0px;
+    color: white;
+}
+section.rounds ul{
     columns: 3;
     -webkit-columns: 3;
     -moz-columns: 3;  
-    width: 30%;  
+     
+}
+section.rounds li{
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;  
+    width: 100%;  
+}
+section.score ul li {
+    border: 0px;
+    padding: 0 0 0 0;
+    margin: auto;
+    display: inline-block;
+    color: forestgreen;
+}
+section.score ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    cursor: initial;
+}
+section.score li{
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+    width: 100%;
+    cursor: initial;
 }
 section ul { 
     margin: 0; 
@@ -90,32 +135,10 @@ section.expedition ul li:last-child {
     margin-right: 0; 
     padding: 12px 5px; 
 }
-section.score ul {
-    columns: 2;
-    -webkit-columns: 2;
-    -moz-columns: 2;
-    width: 100%;
-    cursor: initial;
-}
-section.score li{
-    columns: 1;
-    -webkit-columns: 1;
-    -moz-columns: 1;
-    width: 100%;
-    cursor: initial;
-}
-section.score ul li {
-    margin: 0;
-    border: 0px;
-    padding: 0 0 0 0;
-    margin: auto;
-    display: inline-block;
-    color: forestgreen;
-}
-section.score ul li.header {
+section.score li.header {
     color: white;
 }
-section.score ul li.negative {
+section.score li.negative {
     border: 0px;
     color: #cc0000;
 }
