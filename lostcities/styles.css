@@ -23,8 +23,8 @@ h2 {
 i.far {
     padding-left: 20px;
     font-size: 35px;
-    color: #DFC242;
-    -webkit-text-fill-color: #DFC242; /* Will override color (regardless of order) */
+    color: #ADD8E6;
+    -webkit-text-fill-color: #ADD8E6; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
