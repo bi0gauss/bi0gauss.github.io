@@ -20,6 +20,11 @@ h2 {
     float: left; 
     clear: left; 
 }
+i.fas {
+    padding-left: 20px;
+    font-size: 35px;
+    color: yellow;
+}
 section { 
     margin: 0 0; 
     padding: 5px 0 10px; 

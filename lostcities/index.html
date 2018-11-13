@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script src="js/fastclick.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <script type='text/javascript'>
         var player = "Player1";
         var round = "round1";
@@ -249,6 +250,17 @@
                 }else{
                     $('#TotalScore').removeClass('negative');
                 }
+                if(scores["Player1"].total > scores["Player2"].total){
+                    if($('#winner').length){
+                        $('#winner').remove();
+                    }
+                    $('#Player1').append('<i id="winner" class="fas fa-trophy"></i>');
+                }else if(scores["Player2"].total > scores["Player1"].total){
+                    if($('#winner').length){
+                        $('#winner').remove();
+                    }
+                    $('#Player2').append('<i id="winner" class="fas fa-trophy"></i>');
+                }
             }   
         } 
 
@@ -311,8 +323,8 @@
     <section class ="players">
             <div>
                 <ul>
-                    <li data-player="Player1" class="selected">Player1</li>
-                    <li data-player="Player2">Player2</li>
+                    <li id="Player1" data-player="Player1" class="selected">Player1</li>
+                    <li id="Player2" data-player="Player2">Player2</li>
                 </ul>
             </div>
         </section>
