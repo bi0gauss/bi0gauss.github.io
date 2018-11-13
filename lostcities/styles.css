@@ -1,8 +1,10 @@
-@media (min-width: 768px) {
-
+@media (min-width: 720px) {
+    body{
+        width: 720px;
+    }
 }
 body {
-    width: 720px;
+    /*width: 100%;*/
     margin:0 auto;
     font-family: Rokkitt, sans-serif;
     background-color: #201f25;
