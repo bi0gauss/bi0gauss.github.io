@@ -62,6 +62,7 @@ section.players ul {
     height: 47px;
 }
 section.players li{
+    position: relative;
     columns: 1;
     -webkit-columns: 1;
     -moz-columns: 1;
