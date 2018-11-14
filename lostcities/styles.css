@@ -42,7 +42,7 @@ section.players, section.rounds{
     padding: 0 0; 
     border: 0px;
     border-bottom: 1px solid #333;
-    height: 45px;
+    height: auto;
 }
 section.score{  
     height: auto;
