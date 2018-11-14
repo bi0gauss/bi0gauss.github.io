@@ -22,7 +22,7 @@ h2 {
 }
 i.far {
     padding: 0 20px 0 20px;
-    z-index: -1;
+    /*z-index: -1;*/
     font-size: 35px;
     color: #ADD8E6;
     -webkit-text-fill-color: #ADD8E6; /* Will override color (regardless of order) */
@@ -30,7 +30,6 @@ i.far {
     -webkit-text-stroke-color: black;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #0b7ca1, 0 0 35px #0b7ca1, 0 0 40px #0b7ca1, 0 0 50px #0b7ca1, 0 0 75px #0b7ca1;
     overflow: visible;
-    position:relative;
 }
 section { 
     margin: 0 0; 
@@ -63,7 +62,6 @@ section.players ul {
     height: 47px;
 }
 section.players li{
-    position: relative;
     columns: 1;
     -webkit-columns: 1;
     -moz-columns: 1;
