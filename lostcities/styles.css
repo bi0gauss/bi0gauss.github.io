@@ -89,16 +89,27 @@ section.rounds li{
     width: 100%;
     font-size: 40px;  
 }
-section.players li.selected, section.rounds li.selected{  
+section.players li.selected{  
     color: white;
     background-color: #0b7ca1;
 }
-section.players li.selected:hover, section.rounds li.selected:hover{  
+section.rounds li.selected{
+    color: white;
+    background-color: #cc0000;
+}
+section.players li.selected:hover{  
     color: white;
     background-color: #0b7ca1;
 }
-section.players li:hover, section.rounds li:hover{  
+section.rounds li.selected:hover{
+    color: white;
+    background-color: #cc0000;
+}
+section.players li:hover{  
     color: #0b7ca1;
+}
+section.rounds li:hover{
+    color: #cc0000;
 }
 section.players ul, section.rounds ul, section.score ul{  
     text-align: center;
