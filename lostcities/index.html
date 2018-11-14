@@ -219,6 +219,9 @@
 
                     if(numOfSelectedCards >= 8){
                         scores[player].colors[c].rounds[round].bonus = 20;
+                        $('section.'+c+' li').each(function (e){
+                            $(this).addClass('bonus');
+                        });
                     }
 
                     scores[player].colors[c].rounds[round].score = (scores[player].colors[c].rounds[round].total * multiplier) + scores[player].colors[c].rounds[round].bonus;

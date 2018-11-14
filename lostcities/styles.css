@@ -40,7 +40,7 @@ section.players, section.rounds{
     padding: 0 0; 
     border: 1px;
     border-bottom: 2px solid #333;
-    height: auto;
+    height: 40px;
 }
 section.score{  
     height: auto;
@@ -176,6 +176,9 @@ section.yellow li:hover{
 section.yellow li.selected{
     color: black;
     background-color: #DFC242;
+}
+section.yellow li.bonus{
+    box-shadow: 0 0 1px 1px #DFC242;
 }
 section.blue {
     border-bottom-color: #ADD8E6;
