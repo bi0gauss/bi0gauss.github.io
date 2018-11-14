@@ -42,7 +42,7 @@ section.players, section.rounds{
     padding: 0 0; 
     border: 0px;
     border-bottom: 1px solid #333;
-    height: auto;
+    height: 45px;
 }
 section.score{  
     height: auto;
@@ -59,6 +59,7 @@ section.players ul {
     -webkit-columns: 2;
     -moz-columns: 2;
     cursor: initial;
+    height: 45px;
 }
 section.players li{
     columns: 1;
