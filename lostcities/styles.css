@@ -21,13 +21,15 @@ h2 {
     clear: left; 
 }
 i.far {
-    padding-left: 20px;
+    padding: 0 20px 0 20px;
+    z-index: -1;
     font-size: 35px;
     color: #ADD8E6;
     -webkit-text-fill-color: #ADD8E6; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #0b7ca1, 0 0 35px #0b7ca1, 0 0 40px #0b7ca1, 0 0 50px #0b7ca1, 0 0 75px #0b7ca1;
+    overflow: visible;
 }
 section { 
     margin: 0 0; 
@@ -38,8 +40,8 @@ section {
 section.players, section.rounds{  
     margin: 0 0;
     padding: 0 0; 
-    border: 1px;
-    border-bottom: 2px solid #333;
+    border: 0px;
+    border-bottom: 1px solid #333;
     height: auto;
 }
 section.score{  
@@ -65,6 +67,7 @@ section.players li{
     width: 100%;
     cursor: initial;
     font-size: 40px;
+    height: 45px;
 }
 section.rounds ul li{
     border: 0px;
