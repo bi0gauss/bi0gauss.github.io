@@ -59,7 +59,7 @@ section.players ul {
     -webkit-columns: 2;
     -moz-columns: 2;
     cursor: initial;
-    height: 46px;
+    height: 47px;
 }
 section.players li{
     columns: 1;
@@ -68,7 +68,7 @@ section.players li{
     width: 100%;
     cursor: initial;
     font-size: 40px;
-    height: 46px;
+    height: 47px;
 }
 section.rounds ul li{
     border: 0px;
