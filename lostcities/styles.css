@@ -40,7 +40,7 @@ section.players, section.rounds{
     padding: 0 0; 
     border: 1px;
     border-bottom: 2px solid #333;
-    height: 40px;
+    height: 45px;
 }
 section.score{  
     height: auto;
