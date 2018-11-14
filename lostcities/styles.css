@@ -29,7 +29,6 @@ i.far {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #0b7ca1, 0 0 35px #0b7ca1, 0 0 40px #0b7ca1, 0 0 50px #0b7ca1, 0 0 75px #0b7ca1;
-    overflow: visible;
 }
 section { 
     margin: 0 0; 
@@ -69,6 +68,7 @@ section.players li{
     cursor: initial;
     font-size: 40px;
     height: 47px;
+    overflow: hidden;
 }
 section.rounds ul li{
     border: 0px;
