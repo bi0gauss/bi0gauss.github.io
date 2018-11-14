@@ -27,7 +27,7 @@ i.far {
     -webkit-text-fill-color: #ADD8E6; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ADD8E6, 0 0 35px;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ADD8E6, 0 0 20px;
 }
 section { 
     margin: 0 0; 
