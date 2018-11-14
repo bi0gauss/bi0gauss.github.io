@@ -91,11 +91,12 @@ section.rounds li{
 }
 section.players li.selected{  
     color: white;
+    /*background-color: #13a8da;*/
     background-color: purple;
 }
 section.rounds li.selected{
     color: white;
-    background-color: #cc0000;
+    background-color: #13a8da;
 }
 section.players li.selected:hover{  
     color: white;
@@ -103,13 +104,13 @@ section.players li.selected:hover{
 }
 section.rounds li.selected:hover{
     color: white;
-    background-color: #cc0000;
+    background-color: #13a8da;
 }
 section.players li:hover{  
     color: purple;
 }
 section.rounds li:hover{
-    color: #cc0000;
+    color: #13a8da;
 }
 section.players ul, section.rounds ul, section.score ul{  
     text-align: center;
