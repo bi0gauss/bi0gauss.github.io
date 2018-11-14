@@ -22,12 +22,12 @@ h2 {
 }
 i.far {
     padding-left: 20px;
-    font-size: 35px;
+    font-size: 30px;
     color: #ADD8E6;
     -webkit-text-fill-color: #ADD8E6; /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ADD8E6, 0 0 35px;
 }
 section { 
     margin: 0 0; 
@@ -153,6 +153,10 @@ section ul li {
 }
 section.expedition ul li { 
     font-size: 40px;
+    box-shadow: inset 0px 0px 10px 0px black;
+}
+section.expedition li.selected {
+    box-shadow: none;
 }
 section.expedition ul li:last-child { 
     margin-right: 0; 
@@ -176,9 +180,7 @@ section.yellow li:hover{
 section.yellow li.selected{
     color: black;
     background-color: #DFC242;
-}
-section.yellow li.bonus{
-    box-shadow: 0 0 1px 1px #DFC242;
+    box-shadow: none;
 }
 section.blue {
     border-bottom-color: #ADD8E6;
