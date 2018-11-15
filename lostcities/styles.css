@@ -21,7 +21,7 @@ h2 {
     float: left; 
     clear: left; 
 }
-i.far {
+i#winner {
     padding: 0 20px 0 20px;
     /*z-index: -1;*/
     font-size: 35px;
@@ -171,6 +171,10 @@ section ul li {
 section.expedition ul li { 
     font-size: 40px;
     box-shadow: inset 0px 0px 10px 0px black;
+}
+section.expedition ul li.investment {
+    padding: 14px 0 14px 0;
+    font-size: 35px;
 }
 section.expedition li.selected {
     box-shadow: none;
