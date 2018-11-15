@@ -173,7 +173,7 @@ section.expedition ul li {
     box-shadow: inset 0px 0px 10px 0px black;
 }
 section.expedition ul li.investment {
-    padding: 14px 0 14px 0;
+    padding: 18px 0 11px 0;
     font-size: 35px;
 }
 section.expedition li.selected {
@@ -197,6 +197,7 @@ section.yellow {
 section.yellow li:hover{
     border: 1px solid #DFC242;
     background-color: #18171c;
+    font-weight: bold;   
 }
 section.yellow li.selected{
     color: black;
@@ -210,6 +211,7 @@ section.blue {
 section.blue li:hover{
     border: 1px solid #ADD8E6;
     background-color: #18171c;
+    font-weight: bold;
 }
 section.blue li.selected{
     color: black;
@@ -222,6 +224,7 @@ section.red {
 section.red li:hover{
     border: 1px solid #cc0000;
     background-color: #18171c;
+    font-weight: bold;
 }
 section.red li.selected{
     color: black;
@@ -234,6 +237,7 @@ section.green {
 section.green li:hover{
     border: 1px solid forestgreen;
     background-color: #18171c;
+    font-weight: bold;
 }
 section.green li.selected{
     color: black;
@@ -246,6 +250,7 @@ section.white {
 section.white li:hover{
     border: 1px solid whitesmoke;
     background-color: #18171c;
+    font-weight: bold;
 }
 section.white li.selected{
     color: black;
