@@ -195,7 +195,7 @@
             scores[player][round+"score"] = 0;
 
             for(c in scores[player].colors){
-                var numOfSelectedCards = 0, multiplier = 1;
+                var numOfSelectedCards = 0, multiplier = 1, cost = 0;
                 
                 scores[player].colors[c].rounds[round].count = 0;
                 scores[player].colors[c].rounds[round].total = 0;
@@ -217,6 +217,7 @@
                 }
                 if(numOfSelectedCards > 0){
                     scores[player].colors[c].rounds[round].total = scores[player].colors[c].rounds[round].count - 20;
+                    cost = -20;
 
                     if(numOfSelectedCards >= 8){
                         scores[player].colors[c].rounds[round].bonus = 20;
@@ -239,6 +240,26 @@
                 }
                 scores[player].total = scores[player]["round1score"]+scores[player]["round2score"]+scores[player]["round3score"];
                 updateTotalScore();
+                $('#'+c+'Sum').text(scores[player].colors[c].rounds[round].count);
+                $('#'+c+'Cost').text(cost);
+                $('#'+c+'Multi').text(multiplier);
+                $('#'+c+'Bonus').text(scores[player].colors[c].rounds[round].bonus);
+                $('#'+c+'Total').text(scores[player].colors[c].rounds[round].score);
+                $('#summary td.data').each(function (e){
+                    if($(this).hasClass('multi')){
+                    }else{
+                        if((Number)($(this).text()) > 0){
+                            $(this).addClass('positive');
+                            $(this).removeClass('negative');
+                        }else if((Number)($(this).text()) < 0){
+                            $(this).addClass('negative');
+                            $(this).removeClass('positive');
+                        }else{
+                            $(this).removeClass('negative');
+                            $(this).removeClass('positive'); 
+                        }
+                    }
+                });
             }
 
             function updateTotalScore(){
@@ -345,7 +366,7 @@
             </div>
         </section>
         <section class="expedition yellow" data-color="yellow">
-                <ul><h2>Egyptian Desert</h2></ul>
+                <ul class="header"><h2>Egyptian Desert</h2></ul>
                 <ul>
                     <li class="investment"><i class="far fa-handshake"></i></li>
                     <li>2</li>
@@ -430,6 +451,58 @@
                     <li id="TotalScore" class="scorevalues">0</li>
                 </ul>
             </div>
+        </section>
+        <section id="summary" class="summary">
+            <table>
+                <tr>
+                    <th>Summary</th>
+                    <th>Sum</th>
+                    <th>Cost</th>
+                    <th>Multi</th>
+                    <th>Bonus</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>Egyptian Desert</td>
+                    <td class="data" id="yellowSum">0</td>
+                    <td class="data" id="yellowCost">0</td>
+                    <td class="multi data" id="yellowMulti">0</td>
+                    <td class="data" id="yellowBonus">0</td>
+                    <td class="data" id="yellowTotal">0</td>
+                </tr>
+                <tr>
+                    <td>Lost City of Atlantis</td>
+                    <td class="data" id="blueSum">0</td>
+                    <td class="data" id="blueCost">0</td>
+                    <td class="multi data" id="blueMulti">0</td>
+                    <td class="data" id="blueBonus">0</td>
+                    <td class="data" id="blueTotal">0</td>
+                </tr>
+                <tr>
+                    <td>Himalayra Mountains</td>
+                    <td class="data" id="whiteSum">0</td>
+                    <td class="data" id="whiteCost">0</td>
+                    <td class="multi data" id="whiteMulti">0</td>
+                    <td class="data" id="whiteBonus">0</td>
+                    <td class="data" id="whiteTotal">0</td>
+                </tr>
+                <tr>
+                    <td>Central American Rainforest</td>
+                    <td class="data" id="greenSum">0</td>
+                    <td class="data" id="greenCost">0</td>
+                    <td class="multi data" id="greenMulti">0</td>
+                    <td class="data" id="greenBonus">0</td>
+                    <td class="data" id="greenTotal">0</td>
+                </tr>
+                <tr>
+                    <td>Mysterious Volcano</td>
+                    <td class="data" id="redSum">0</td>
+                    <td class="data" id="redCost">0</td>
+                    <td class="multi data" id="redMulti">0</td>
+                    <td class="data" id="redBonus">0</td>
+                    <td class="data" id="redTotal">0</td>
+                </tr>
+            </table>
         </section>
     </div>
   </body>

@@ -136,8 +136,28 @@ section.score li{
     width: 100%;
     cursor: initial;
     font-size: 40px;
-}section.score li.scorevalues{
+}
+section.score li.scorevalues{
     font-size: 100px;
+}
+section.summary {
+    height: 150px;
+}
+section.summary table{
+    font-size: 20px;
+    width: 100%;
+}
+section.summary th {
+    text-align: left;
+}
+section.summary td.data {
+    padding-left: 10px;
+}
+section.summary td.positive {
+    color: forestgreen;
+}
+section.summary td.negative {
+    color: #cc0000;
 }
 section ul { 
     margin: 0; 
