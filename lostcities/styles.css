@@ -150,9 +150,6 @@ section.summary {
     cursor: default;
     padding: 5px 0 0 0;
 }
-section.summary.visible {
-    display: all;
-}
 section.summary table{
     font-size: 30px;
     width: 100%;
