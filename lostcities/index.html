@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lost Cities Score Calc v2.3.2</title>
+    <title>Lost Cities Score Calc v2.5.0</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -245,21 +245,6 @@
                 $('#'+c+'Multi').text(multiplier);
                 $('#'+c+'Bonus').text(scores[player].colors[c].rounds[round].bonus);
                 $('#'+c+'Total').text(scores[player].colors[c].rounds[round].score);
-                $('#summary td.data').each(function (e){
-                    if($(this).hasClass('multi')){
-                    }else{
-                        if((Number)($(this).text()) > 0){
-                            $(this).addClass('positive');
-                            $(this).removeClass('negative');
-                        }else if((Number)($(this).text()) < 0){
-                            $(this).addClass('negative');
-                            $(this).removeClass('positive');
-                        }else{
-                            $(this).removeClass('negative');
-                            $(this).removeClass('positive'); 
-                        }
-                    }
-                });
             }
 
             function updateTotalScore(){
@@ -470,44 +455,44 @@
                     <th>Total</th>
                 </tr>
                 <tr>
-                    <td>Egyptian Desert</td>
-                    <td class="data" id="yellowSum">0</td>
-                    <td class="data" id="yellowCost">0</td>
-                    <td class="multi data" id="yellowMulti">0</td>
-                    <td class="data" id="yellowBonus">0</td>
-                    <td class="data" id="yellowTotal">0</td>
+                    <td class="yellow">Egyptian Desert</td>
+                    <td class="yellow data" id="yellowSum">0</td>
+                    <td class="yellow data" id="yellowCost">0</td>
+                    <td class="yellow multi data" id="yellowMulti">0</td>
+                    <td class="yellow data" id="yellowBonus">0</td>
+                    <td class="yellow data" id="yellowTotal">0</td>
                 </tr>
                 <tr>
-                    <td>Lost City of Atlantis</td>
-                    <td class="data" id="blueSum">0</td>
-                    <td class="data" id="blueCost">0</td>
-                    <td class="multi data" id="blueMulti">0</td>
-                    <td class="data" id="blueBonus">0</td>
-                    <td class="data" id="blueTotal">0</td>
+                    <td class="blue">Lost City of Atlantis</td>
+                    <td class="blue data" id="blueSum">0</td>
+                    <td class="blue data" id="blueCost">0</td>
+                    <td class="blue multi data" id="blueMulti">0</td>
+                    <td class="blue data" id="blueBonus">0</td>
+                    <td class="blue data" id="blueTotal">0</td>
                 </tr>
                 <tr>
-                    <td>Himalayra Mountains</td>
-                    <td class="data" id="whiteSum">0</td>
-                    <td class="data" id="whiteCost">0</td>
-                    <td class="multi data" id="whiteMulti">0</td>
-                    <td class="data" id="whiteBonus">0</td>
-                    <td class="data" id="whiteTotal">0</td>
+                    <td class="white">Himalayra Mountains</td>
+                    <td class="white data" id="whiteSum">0</td>
+                    <td class="white data" id="whiteCost">0</td>
+                    <td class="white multi data" id="whiteMulti">0</td>
+                    <td class="white data" id="whiteBonus">0</td>
+                    <td class="white data" id="whiteTotal">0</td>
                 </tr>
                 <tr>
-                    <td>Central American Rainforest</td>
-                    <td class="data" id="greenSum">0</td>
-                    <td class="data" id="greenCost">0</td>
-                    <td class="multi data" id="greenMulti">0</td>
-                    <td class="data" id="greenBonus">0</td>
-                    <td class="data" id="greenTotal">0</td>
+                    <td class="green">Rainforest</td>
+                    <td class="green data" id="greenSum">0</td>
+                    <td class="green data" id="greenCost">0</td>
+                    <td class="green multi data" id="greenMulti">0</td>
+                    <td class="green data" id="greenBonus">0</td>
+                    <td class="green data" id="greenTotal">0</td>
                 </tr>
                 <tr>
-                    <td>Mysterious Volcano</td>
-                    <td class="data" id="redSum">0</td>
-                    <td class="data" id="redCost">0</td>
-                    <td class="multi data" id="redMulti">0</td>
-                    <td class="data" id="redBonus">0</td>
-                    <td class="data" id="redTotal">0</td>
+                    <td class="red">Mysterious Volcano</td>
+                    <td class="red data" id="redSum">0</td>
+                    <td class="red data" id="redCost">0</td>
+                    <td class="red multi data" id="redMulti">0</td>
+                    <td class="red data" id="redBonus">0</td>
+                    <td class="red data" id="redTotal">0</td>
                 </tr>
             </table>
         </section>

@@ -154,7 +154,7 @@ section.summary.visible {
     display: all;
 }
 section.summary table{
-    font-size: 20px;
+    font-size: 30px;
     width: 100%;
 }
 section.summary th {
@@ -162,12 +162,6 @@ section.summary th {
 }
 section.summary td.data {
     padding-left: 10px;
-}
-section.summary td.positive {
-    color: forestgreen;
-}
-section.summary td.negative {
-    color: #cc0000;
 }
 section ul { 
     margin: 0; 
@@ -220,69 +214,69 @@ section.score li.negative {
     border: 0px;
     color: #cc0000;
 }
-section.yellow {
+.yellow {
     border-bottom-color: #DFC242;
     color: #DFC242;
 }
-section.yellow li:hover{
+.yellow li:hover{
     border: 1px solid #DFC242;
     background-color: #18171c;
     font-weight: bold;   
 }
-section.yellow li.selected{
+.yellow li.selected{
     color: black;
     background-color: #DFC242;
     box-shadow: none;
 }
-section.blue {
+.blue {
     border-bottom-color: #ADD8E6;
     color: #ADD8E6;
 }
-section.blue li:hover{
+.blue li:hover{
     border: 1px solid #ADD8E6;
     background-color: #18171c;
     font-weight: bold;
 }
-section.blue li.selected{
+.blue li.selected{
     color: black;
     background-color: #ADD8E6;
 }
-section.red {
+.red {
     border-bottom-color: #cc0000;
     color: #cc0000;
 }
-section.red li:hover{
+.red li:hover{
     border: 1px solid #cc0000;
     background-color: #18171c;
     font-weight: bold;
 }
-section.red li.selected{
+.red li.selected{
     color: black;
     background-color: #cc0000;
 }
-section.green {
+.green {
     border-bottom-color: forestgreen;
     color: forestgreen;
 }
-section.green li:hover{
+.green li:hover{
     border: 1px solid forestgreen;
     background-color: #18171c;
     font-weight: bold;
 }
-section.green li.selected{
+.green li.selected{
     color: black;
     background-color: forestgreen;
 }
-section.white {
+.white {
     border-bottom-color: whitesmoke;
     color: whitesmoke;
 }
-section.white li:hover{
+.white li:hover{
     border: 1px solid whitesmoke;
     background-color: #18171c;
     font-weight: bold;
 }
-section.white li.selected{
+.white li.selected{
     color: black;
     background-color: whitesmoke;
 }
