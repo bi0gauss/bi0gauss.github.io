@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lost Cities Score Calc v2.3.0</title>
+    <title>Lost Cities Score Calc v2.3.1</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -343,7 +343,7 @@
                 updateSelected();
                 updateScore();
             });
-            $('#RoundScore').on("click",function(e) {
+            $('[id*="RoundScore"]').on("click",function(e) {
                 if($('#summary').is(':visible')){
                     $('#summary').slideUp();
                 }else{
@@ -450,7 +450,7 @@
         <section class="score">
             <div>
                 <ul>
-                    <li class="header">Round Score</li>
+                    <li id="RoundScoreHeader" class="header">Round Score <i id="info" class="fas fa-info-circle"></i></li>
                     <li class="header">Total Score</li>
                 </ul>
                 <ul>
