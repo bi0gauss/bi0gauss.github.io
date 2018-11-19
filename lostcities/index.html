@@ -343,6 +343,13 @@
                 updateSelected();
                 updateScore();
             });
+            $('#RoundScore').on("click",function(e) {
+                if($('#summary').is(':visible')){
+                    $('#summary').slideUp();
+                }else{
+                    $('#summary').slideDown();
+                }
+            });
         });
     </script>
   </head>

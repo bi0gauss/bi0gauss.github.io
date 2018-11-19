@@ -142,6 +142,11 @@ section.score li.scorevalues{
 }
 section.summary {
     height: 150px;
+    display: none;
+    cursor: default;
+}
+section.summary.visible {
+    display: all;
 }
 section.summary table{
     font-size: 20px;
