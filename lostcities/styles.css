@@ -141,15 +141,16 @@ section.score li.scorevalues{
     font-size: 100px;
 }
 section.summary {
-    height: 150px;
+    height: auto;
     display: none;
     cursor: default;
+    padding: 5px 0 0 0;
 }
 section.summary.visible {
     display: all;
 }
 section.summary table{
-    font-size: 20px;
+    font-size: 15px;
     width: 100%;
 }
 section.summary th {
